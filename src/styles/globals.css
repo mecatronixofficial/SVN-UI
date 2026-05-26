@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-steel-900 antialiased;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #1f3c6c;
+  color: #fff;
+}
+
+/* Subtle blueprint-style background utility */
+.blueprint-bg {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.container-x {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f4f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f3c6c;
+  border-radius: 8px;
+}
+
+/* Underline accent for headings */
+.heading-accent::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, #1f3c6c, #f59e0b);
+  border-radius: 999px;
+  margin-top: 12px;
+}
+
+.heading-accent-center::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  background: linear-gradient(90deg, #1f3c6c, #f59e0b);
+  border-radius: 999px;
+  margin: 12px auto 0;
+}
+
+/* Diagonal stripe utility for industrial feel */
+.stripe-bg {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(245, 158, 11, 0.08) 0,
+    rgba(245, 158, 11, 0.08) 12px,
+    transparent 12px,
+    transparent 24px
+  );
+}
+
+/* Button base */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-all duration-200;
+}
+.btn-primary {
+  @apply btn bg-brand-700 text-white hover:bg-brand-800 shadow-soft hover:shadow-industrial;
+}
+.btn-accent {
+  @apply btn bg-accent text-brand-900 hover:bg-accent-dark hover:text-white shadow-soft;
+}
+.btn-outline {
+  @apply btn border border-brand-700 text-brand-700 hover:bg-brand-700 hover:text-white;
+}
+.btn-ghost {
+  @apply btn text-white border border-white/40 hover:bg-white hover:text-brand-900;
+}
