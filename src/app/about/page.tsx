@@ -37,7 +37,7 @@ export default function AboutPage() {
             <div className="rounded-3xl overflow-hidden shadow-industrial">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1200&auto=format&fit=crop&q=70"
+                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1779958260/60001_bavcok.jpg"
                 alt="SVN Enterprises factory"
                 className="h-[480px] w-full object-cover"
               />
@@ -187,7 +187,7 @@ export default function AboutPage() {
           <div className="rounded-3xl overflow-hidden shadow-industrial">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&auto=format&fit=crop&q=70"
+              src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1779959705/15850_kgshjp.jpg"
               alt="Factory infrastructure"
               className="h-[480px] w-full object-cover"
             />
