@@ -11,7 +11,7 @@ export default function PageHero({
   title,
   subtitle,
   breadcrumbs,
-  bgImage = "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1920&auto=format&fit=crop&q=80",
+  bgImage = "https://res.cloudinary.com/ddpfxvydm/image/upload/v1779953948/close-up-sewing-machine-tailor-shop_f7mm93.jpg",
 }: PageHeroProps) {
   return (
     <section className="relative isolate overflow-hidden bg-brand-950 text-white">

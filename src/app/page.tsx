@@ -47,12 +47,12 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden shadow-industrial">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=1200&auto=format&fit=crop&q=70"
+                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1779953948/main_q5bhdr.jpg"
                 alt="SVN Enterprises manufacturing"
-                className="h-[480px] w-full object-cover"
+                className="h-[600px] w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-xl bg-white/95 backdrop-blur p-4">
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 backdrop-blur p-2">
                 <p className="text-xs uppercase tracking-widest text-accent-dark font-semibold">
                   Established
                 </p>
@@ -102,13 +102,14 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="section-padding bg-steel-50/60">
+      <section className="section-padding bg-steel-50/40">
         <div className="container-x">
           <SectionTitle
             eyebrow="Why Choose Us"
             title="Built on trust, engineered to last"
             description="What our clients value most about working with SVN Enterprises."
             align="center"
+        
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item, i) => {
@@ -171,7 +172,7 @@ export default function Home() {
           className="absolute inset-0 -z-10 bg-cover bg-center opacity-20"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&auto=format&fit=crop&q=70')",
+              "url('https://res.cloudinary.com/ddpfxvydm/image/upload/v1779959028/29631_neyozz.jpg')",
           }}
         />
         <div className="container-x relative">
