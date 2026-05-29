@@ -203,7 +203,7 @@ export default function ContactPage() {
           <div className="overflow-hidden rounded-2xl border border-steel-200 shadow-soft">
             <iframe
               title="SVN Enterprises Location — Erode"
-              src="https://www.google.com/maps?q=Erode,Tamil+Nadu,India&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.9716146101914!2d77.68880709999999!3d11.3367839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba96fcaacb8403b%3A0x3768fe5ee06a2921!2sSVN%20ENTERPRISES!5e0!3m2!1sen!2sin!4v1780050954312!5m2!1sen!2sin"
               width="100%"
               height="480"
               style={{ border: 0 }}

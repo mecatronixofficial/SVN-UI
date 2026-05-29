@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaIndustry,
   FaFacebookF,
@@ -22,9 +23,15 @@ export default function Footer() {
       <div className="container-x relative py-16 grid gap-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-md bg-accent text-brand-900">
-              <FaIndustry className="h-5 w-5" />
-            </span>
+            <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-md bg-white shadow-soft group-hover:bg-brand-800 transition-colors">
+                          <Image
+                            src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1780046262/SVN_Logo_oof9dn.png"
+                            alt="SVN Logo"
+                            width={44}
+                            height={44}
+                            className="object-contain"
+                          />
+                        </span>
             <span className="flex flex-col leading-tight">
               <span className="font-display text-xl font-bold text-white">
                 SVN Enterprises
@@ -87,7 +94,7 @@ export default function Footer() {
             Products
           </h4>
           <ul className="mt-5 space-y-2 text-sm">
-            {products.slice(0, 6).map((p) => (
+            {products.slice(-6).map((p) => (
               <li key={p.slug}>
                 <Link
                   href={`/products/${p.slug}`}
@@ -172,9 +179,8 @@ export default function Footer() {
       <div className="relative border-t border-brand-800/60">
         <div className="container-x py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-brand-300">
           <p>© 2026 SVN Enterprises. All Rights Reserved.</p>
-          <p>
-            Designed for industrial excellence · Built in{" "}
-            <span className="text-accent">Erode</span>, Tamil Nadu
+          <p className="text-center md:text-right">
+            Designed By <span className="hover:text-red-600">Mecatronix</span>
           </p>
         </div>
       </div>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -72,8 +73,14 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
             aria-label="SVN Enterprises Home"
           >
-            <span className="grid h-11 w-11 place-items-center rounded-md bg-brand-700 text-white shadow-soft group-hover:bg-brand-800 transition-colors">
-              <FaIndustry className="h-5 w-5" />
+            <span className="grid h-11 w-11 place-items-center overflow-hidden ">
+              <Image
+                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1780048822/ChatGPT_Image_May_29_2026_03_29_56_PM_ipsss6.png"
+                alt="SVN Logo"
+                width={44}
+                height={44}
+                className="object-contain"
+              />
             </span>
             <span className="flex flex-col leading-tight">
               <span className="font-display text-lg font-bold text-brand-900">
@@ -113,11 +120,20 @@ export default function Navbar() {
             })}
           </ul>
 
-          <div className="hidden lg:flex items-center gap-3">
-            <Link href="/contact" className="btn-primary">
-              Get a Quote
-            </Link>
-          </div>
+          <a
+            href="/contact"
+            className="relative hidden lg:flex items-center gap-3 text-sm group"
+          >
+            <span className="relative z-10 block px-5 py-3 overflow-hidden font-medium leading-tight text-gray-800 transition-colors duration-300 ease-out border-2 border-gray-900 rounded-lg group-hover:text-white">
+              <span className="absolute inset-0 w-full h-full px-5 py-3 rounded-lg bg-gray-50"></span>
+              <span className="absolute left-0 w-48 h-48 -ml-2 transition-all duration-300 origin-top-right -rotate-90 -translate-x-full translate-y-12 bg-gray-900 group-hover:-rotate-180 ease"></span>
+              <span className="relative">Get a Quote</span>
+            </span>
+            <span
+              className="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-900 rounded-lg group-hover:mb-0 group-hover:mr-0"
+              data-rounded="rounded-lg"
+            ></span>
+          </a>
 
           <button
             type="button"
@@ -125,7 +141,11 @@ export default function Navbar() {
             className="lg:hidden grid h-10 w-10 place-items-center rounded-md text-brand-900 hover:bg-steel-100"
             onClick={() => setOpen((s) => !s)}
           >
-            {open ? <FaTimes className="h-5 w-5" /> : <FaBars className="h-5 w-5" />}
+            {open ? (
+              <FaTimes className="h-5 w-5" />
+            ) : (
+              <FaBars className="h-5 w-5" />
+            )}
           </button>
         </nav>
 
