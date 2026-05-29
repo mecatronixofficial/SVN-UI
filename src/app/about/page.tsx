@@ -39,7 +39,7 @@ export default function AboutPage() {
               <img
                 src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1779958260/60001_bavcok.jpg"
                 alt="SVN Enterprises factory"
-                className="h-[480px] w-full object-cover"
+                className="h-[680px] w-full object-cover"
               />
             </div>
             <div className="hidden md:block absolute -top-6 -left-6 h-24 w-24 stripe-bg rounded-xl" />
@@ -47,8 +47,10 @@ export default function AboutPage() {
           <div>
             <SectionTitle
               eyebrow="Company Overview"
-              title="A trusted name in industrial & textile machinery"
-              description="From a single workshop in Erode, SVN Enterprises has grown into a respected manufacturer serving customers across India. Our focus has always been clear: build machines that work reliably, day after day, for the people running production floors."
+              title="SVN Enterprises in brief"
+              description=" Established in 2012 and headquartered in Erode, SVN Enterprises is a leading manufacturer of precision-engineered textile processing and finishing machinery. We specialize in delivering reliable, energy-efficient solutions for weaving, dyeing, processing, and garment applications, designed to enhance productivity, quality, and operational efficiency.
+
+Driven by engineering excellence, advanced in-house design capabilities, and a commitment to continuous innovation, we provide durable machinery, customized solutions, and responsive technical support to meet the evolving demands of the textile industry."
             />
             <div className="grid grid-cols-2 gap-4 text-sm">
               {[
@@ -78,12 +80,12 @@ export default function AboutPage() {
             {
               icon: FaBullseye,
               title: "Our Mission",
-              text: "To engineer dependable industrial and textile machinery that helps Indian manufacturers operate efficiently, reduce downtime and consistently deliver quality output to their customers.",
+              text: "To empower the global textile industry with reliable, innovative machinery that enhances operational excellence,fosters sustainable practices,and delivers measurable value to every client",
             },
             {
               icon: FaEye,
               title: "Our Vision",
-              text: "To be recognised as one of South India's most trusted manufacturers of textile and industrial machinery — known for quality, transparent pricing and long-term customer relationships.",
+              text: "To be the foremost pioneer in textile machinery,setting new benchmarks in technology, efficiency,and environmental responsibility while propelling industry growth worldwide.",
             },
           ].map(({ icon: Icon, title, text }) => (
             <div
