@@ -28,8 +28,9 @@ export interface FAQItem {
   answer: string;
 }
 
-export interface GalleryItem {
+export type GalleryItem = {
   id: number;
+  type: "image" | "video";
   src: string;
   alt: string;
   category:
@@ -37,9 +38,10 @@ export interface GalleryItem {
     | "Machines"
     | "Manufacturing Process"
     | "Product Showcase"
-    | "Team & Infrastructure";
+    | "Team & Infrastructure"
+    | "Videos";
   height?: "short" | "medium" | "tall";
-}
+};
 
 export interface Update {
   id: number;

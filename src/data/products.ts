@@ -403,10 +403,10 @@ export const products: Product[] = [
       "Industrial conveyor belt system for smooth material movement in textile production lines.",
     description:
       "Conveyor Belt is used for transferring fabric rolls, packed goods or materials between different production stages. It improves workflow, reduces manual movement and supports continuous operation.",
-    image: "/images/products/conveyor-belt.jpg",
+    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781077258/162_gxayd0.jpg",
     gallery: [
-      "/images/products/conveyor-belt.jpg",
-      "/images/products/conveyor-belt-2.jpg",
+      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781077258/162_gxayd0.jpg",
+      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781077258/162_gxayd0.jpg",
     ],
     features: [
       "Continuous belt movement",
@@ -454,10 +454,10 @@ export const products: Product[] = [
     "Textile dyeing jigger machine for controlled fabric dyeing and wet processing.",
   description:
     "Jigger machine is used in textile dyeing and wet processing for uniform dye application on woven fabrics. It helps maintain controlled fabric movement, proper chemical contact and consistent shade results.",
-  image: "/images/products/jigger.jpg",
+  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746550/1000007667_xwhh5e.jpg",
   gallery: [
-    "/images/products/jigger.jpg",
-    "/images/products/jigger-2.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746550/1000007667_xwhh5e.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746550/1000007667_xwhh5e.jpg",
   ],
   features: [
     "Uniform fabric dyeing",
@@ -503,10 +503,10 @@ export const products: Product[] = [
     "Garment cutting machine for accurate and efficient fabric cutting operations.",
   description:
     "Cutting Machine is used in garmenting units for accurate cutting of fabric layers before stitching and production. It improves cutting speed, reduces manual effort and supports consistent garment production quality.",
-  image: "/images/products/cutting-machine.jpg",
+  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078203/2148828328_1_xzswj2.jpg",
   gallery: [
-    "/images/products/cutting-machine.jpg",
-    "/images/products/cutting-machine-2.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078203/2148828328_1_xzswj2.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078203/2148828328_1_xzswj2.jpg",
   ],
   features: [
     "Accurate fabric cutting",
@@ -552,10 +552,10 @@ export const products: Product[] = [
     "A-frame trolley for safe fabric roll, batch and material movement in textile units.",
   description:
     "A-Frame Trolley is used for safe handling and movement of fabric rolls, batches and textile materials inside production areas. Its strong A-frame structure provides stability and easy movement during material transfer.",
-  image: "/images/products/a-frame-trolley.jpg",
+  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078291/Screenshot_2026-06-10_132452_fdjoj7.png",
   gallery: [
-    "/images/products/a-frame-trolley.jpg",
-    "/images/products/a-frame-trolley-2.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078291/Screenshot_2026-06-10_132452_fdjoj7.png",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078291/Screenshot_2026-06-10_132452_fdjoj7.png",
   ],
   features: [
     "Strong A-frame structure",
@@ -601,10 +601,10 @@ export const products: Product[] = [
     "Box trolley for carrying fabric, garments and production materials safely.",
   description:
     "Box Trolley is used for handling fabrics, garments, accessories and production materials inside textile and garment units. It helps keep materials organized and improves internal movement efficiency.",
-  image: "/images/products/box-trolley.jpg",
+  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078199/857_gutxa4.jpg",
   gallery: [
-    "/images/products/box-trolley.jpg",
-    "/images/products/box-trolley-2.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078199/857_gutxa4.jpg",
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078199/857_gutxa4.jpg",
   ],
   features: [
     "Box-type storage design",
