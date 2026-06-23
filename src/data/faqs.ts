@@ -4,22 +4,22 @@ export const faqs: FAQItem[] = [
   {
     question: "What products does SVN Enterprises manufacture?",
     answer:
-      "We manufacture a complete range of industrial and textile machinery including Inspection Cum Rolling Machines, Rolling Machines, Industrial & Textile Sewing Machines, Fabric Inspection Machines, Washer Extractors, Textile Washer Machines and Foot Massagers.",
+     " We manufacture a complete range of textile machinery, including fabric inspection machines, fabric rolling machines, stitching machines, conveyor belts, grey batching machines, rotating machines, desizing washing tanks, brushing machines, beating machines, continuous washing machines, drying ranges, padding machines, A-frame trolleys, box trolleys, and other textile processing equipment etc...",
   },
   {
     question: "Do you provide customized machinery?",
     answer:
-      "Yes. We regularly build machines to customer-specific widths, capacities, voltages and control configurations. Share your requirement with our team for a tailored quote.",
+      "Yes, we customize the machine based on the customer’s requirements to ensure smooth and efficient working performance.",
   },
   {
     question: "Where is SVN Enterprises located?",
     answer:
-      "Our manufacturing unit and office are located in Erode, Tamil Nadu, India. We supply machinery across India and select export markets.",
+      "Our manufacturing unit is located in Erode, and our sales branch offices are located in Mumbai and Gurgaon. We also have sales agents serving across India and Asian countries.",
   },
   {
     question: "What industries do you serve?",
     answer:
-      "We primarily serve textile mills, garment manufacturers, dyeing units, commercial laundries, hotels, hospitals and home textile producers.",
+      "We primarily serve textile industries, weving divisions, dyeing divisions,  garment manufacturers, process divisions , etc....",
   },
   {
     question: "How can I request a quotation?",

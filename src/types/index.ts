@@ -1,17 +1,25 @@
-export interface Product {
+export type Product = {
+  machineNumber: string;
   slug: string;
   name: string;
   category: string;
   shortDescription: string;
   description: string;
-  image: string;
-  gallery: string[];
+
+  video: string;
+
   features: string[];
   applications: string[];
-  specifications: { label: string; value: string }[];
+  specifications: {
+    label: string;
+    value: string;
+  }[];
   benefits: string[];
-  faqs: { question: string; answer: string }[];
-}
+  faqs: {
+    question: string;
+    answer: string;
+  }[];
+};
 
 export interface Testimonial {
   id: number;
@@ -33,14 +41,25 @@ export type GalleryItem = {
   type: "image" | "video";
   src: string;
   alt: string;
+  name?: string;
+  slug?: string;
+  height: "short" | "medium" | "tall";
   category:
-    | "Factory Images"
-    | "Machines"
-    | "Manufacturing Process"
-    | "Product Showcase"
-    | "Team & Infrastructure"
-    | "Videos";
-  height?: "short" | "medium" | "tall";
+    | "Inspection Machines"
+    | "Opening Machines"
+    | "Folding Machines"
+    | "Wrapping Machines"
+    | "Material Handling"
+    | "Batching Machines"
+    | "Rolling Machines"
+    | "Processing Machines"
+    | "Dyeing Machines"
+    | "Garmenting Machines"
+    | "Material Handling Equipments"
+    | "Finishing Machines"
+    | "Drying Machines"
+    | "Washing Machines"
+    | "Factory Images";
 };
 
 export interface Update {

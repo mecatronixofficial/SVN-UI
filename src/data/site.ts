@@ -5,24 +5,24 @@ export const siteConfig = {
   tagline: "Reliable Industrial & Textile Machinery Manufacturer Since 2012",
   description:
     "SVN Enterprises is a leading manufacturer of textile machinery, sewing machines, washer extractors and fabric inspection systems based in Erode, Tamil Nadu.",
-  ceo: "S Guru",
+  ceo: "Randhir Singh",
   established: "2012",
   gstSince: "July 2017",
-  employees: "Up to 10 People",
+  employees: "Up to 18 People",
   legalStatus: "Partnership Firm",
   natureOfBusiness: "Manufacturer",
   additionalBusiness: ["Retail Business", "Factory / Manufacturing"],
   address: {
     line1: "SVN Enterprises",
-    line2: "Industrial Area, Erode",
+    line2: " Subramaniam nagar, Vivekanandar Salai,Veerappampalayam,Thindal",
     city: "Erode",
     state: "Tamil Nadu",
     country: "India",
-    pincode: "638001",
+    pincode: "638012",
   },
-  phone: "+91 98765 43210",
-  whatsapp: "919876543210",
-  email: "info@svnenterprises.in",
+  phone: "9994364935  ",
+  whatsapp: "9344035935",
+  email: "svnindustries2012@gmail.com ",
   workingHours: "Mon – Sat: 9:00 AM – 7:00 PM",
   socials: {
     facebook: "https://facebook.com",
@@ -33,10 +33,10 @@ export const siteConfig = {
 };
 
 export const stats = [
-  { value: 13, suffix: "+", label: "Years of Experience" },
-  { value: 500, suffix: "+", label: "Machines Delivered" },
-  { value: 250, suffix: "+", label: "Happy Clients" },
-  { value: 25, suffix: "+", label: "Cities Served" },
+  { value: 14, suffix: "+", label: "Years of Experience" },
+  { value: 1200, suffix: "+", label: "Machines Delivered" },
+  { value: 250, suffix: "+", label: "Valuable Customers" },
+  { value: "Pan India & Asian Countries", suffix: "", label: "Cities Served" },
 ];
 
 export const whyChooseUs = [
@@ -83,14 +83,14 @@ export const processSteps: ProcessStep[] = [
     step: 1,
     title: "Requirement Analysis",
     description:
-      "We start by understanding your production needs, fabric type, available space and target output.",
+      "We discuss your production needs, machine specifications, fabric machine dimensions, machine capacity, and optic fabric requirements.",
     icon: "FaClipboardList",
   },
   {
     step: 2,
     title: "Machine Manufacturing",
     description:
-      "Our team fabricates and assembles your machine using quality components and tested designs.",
+      "Our team prepares CAD diagrams and handles laser cutting, welding, fabrication, powder coating, and complete manufacturing support.",
     icon: "FaTools",
   },
   {
@@ -104,7 +104,7 @@ export const processSteps: ProcessStep[] = [
     step: 4,
     title: "Delivery & Support",
     description:
-      "Safe dispatch, on-site installation, operator training and continued after-sales service.",
+      "Before delivery, our team conducts a complete inspection and checks all machine parameters to ensure quality before dispatch.",
     icon: "FaTruck",
   },
 ];
@@ -128,18 +128,19 @@ export const timeline = [
     description:
       "Formally GST-registered in July 2017, expanding our reach across multiple states.",
   },
+   {
+    year: "2018",
+    title: "Exports Global Country ",
+    description:
+      "Began exporting our textile machinery to international markets, including several Asian countries.",
+  },
   {
     year: "2019",
     title: "Fabric Inspection Line",
     description:
       "Launched our flagship Inspection Cum Rolling Machine series with strong market response.",
   },
-  {
-    year: "2022",
-    title: "Laundry Equipment",
-    description:
-      "Introduced industrial washer extractors and textile washing machines for commercial clients.",
-  },
+ 
   {
     year: "2025",
     title: "250+ Clients & Growing",

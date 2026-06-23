@@ -1,60 +1,51 @@
 import type { Product } from "@/types";
 
 export const products: Product[] = [
-  {
-    slug: "fabric-inspection-machine",
-    name: "Fabric Inspection Machine",
-    category: "Inspection Machines",
-    shortDescription:
-      "Precision fabric inspection machine with edge guiding, lighting, counting, weighing and winding control.",
-    description:
-      "Fabric Inspection Machine is designed for accurate fabric quality inspection and controlled fabric handling. It helps identify defects, maintain proper fabric alignment, reduce wrinkles and improve roll quality during textile processing.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780036415/2148828328_soy6vr.jpg",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780036567/fabric-inspection-machine-1_rup19u.jpg",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780036568/fabric-inspection-machine-2_rmmxxm.jpg",
-    ],
-    features: [
-      "Edge guiding system",
-      "Inspection table with lighting",
-      "Variable speed AC drive",
-      "Digital encoder and mechanical counting meter",
-      "Take-up roll with forward and reverse control",
-      "Double coated inspection glass",
-      "Individual winding roller drive",
-      "Optional ERP defect logging",
-      "Optional digital roll weighing unit",
-    ],
-    applications: [
-      "Fabric inspection",
-      "Textile mills",
-      "Weaving units",
-      "Dyeing units",
-      "Processing units",
-    ],
-    specifications: [
-      { label: "Fabric Width", value: "300 mm to 4500 mm" },
-      { label: "Speed", value: "Up to 90 m/min" },
-      { label: "Power Supply", value: "400V / 50Hz" },
-      { label: "Drive", value: "Variable Speed AC Drive" },
-      { label: "Power", value: "From 4 HP depending on requirement" },
-    ],
-    benefits: [
-      "Wrinkle-free fabric handling",
-      "Improves inspection accuracy",
-      "Reduces manual errors",
-      "Better batch traceability",
-      "Improves production quality",
-    ],
-    faqs: [
-      {
-        question: "Can data logging be added?",
-        answer: "Yes, ERP-based defect logging can be added as an optional feature.",
-      },
-    ],
-  },
+{
+  machineNumber: "01",
+  slug: "fabric-inspection-machine",
+  name: "Fabric Inspection Machine",
+  category: "Inspection Machines",
+  shortDescription:
+    "Precision fabric inspection machine with edge guiding, lighting, counting, weighing and winding control.",
+  description:
+    "Fabric Inspection Machine is designed for accurate fabric quality inspection and controlled fabric handling.",
+
+  video:
+    "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766963/Fabric_Machine_eljdoq.mp4",
+
+  features: [
+    "Edge guiding system",
+    "Inspection table with lighting",
+    "Variable speed AC drive",
+    "Digital encoder and mechanical counting meter",
+  ],
+
+  applications: [
+    "Fabric inspection",
+    "Textile mills",
+    "Weaving units",
+    "Dyeing units",
+  ],
+
+  specifications: [
+    { label: "Fabric Width", value: "300 mm to 4500 mm" },
+    { label: "Speed", value: "Up to 90 m/min" },
+    { label: "Power Supply", value: "400V / 50Hz" },
+    { label: "Drive", value: "Variable Speed AC Drive" },
+  ],
+
+  benefits: [
+    "Wrinkle-free fabric handling",
+    "Improves inspection accuracy",
+    "Reduces manual errors",
+  ],
+
+  faqs: [],
+},
 
   {
+     machineNumber: "02",
     slug: "rope-opener-and-slit-opener",
     name: "Rope Opener and Slit Opener",
     category: "Opening Machines",
@@ -62,11 +53,9 @@ export const products: Product[] = [
       "Textile rope opener and slit opener for opening tubular or rope-form fabric before further processing.",
     description:
       "Rope Opener and Slit Opener is used to open rope-form fabric and slit tubular fabric for continuous processing. It helps prepare fabric for washing, drying, stentering, inspection and finishing operations.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037015/Rope_Opener_and_Slit_Opener_machine-1_2_v63tiw.png",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037018/Rope_Opener_and_Slit_Opener_machine-1_3_lo4tq8.png",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037014/Rope_Opener_and_Slit_Opener_machine-1_1_gdreeg.png",
-    ],
+     video:
+    "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781767029/Rope_Opener_zundk0.mp4",
+
     features: [
       "Rope fabric opening system",
       "Slitting arrangement for tubular fabric",
@@ -104,6 +93,7 @@ export const products: Product[] = [
   },
 
   {
+    machineNumber: "03",
     slug: "folding-machine",
     name: "Folding Machine",
     category: "Folding Machines",
@@ -111,11 +101,9 @@ export const products: Product[] = [
       "Fabric folding machine for neat, uniform and production-ready fabric folding.",
     description:
       "Folding Machine is used to fold fabric accurately and uniformly after inspection, finishing or rolling operations. It improves packing quality, reduces manual effort and gives a neat presentation for dispatch.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037217/Folding_Machine_3_ahkl8l.jpg",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037218/Folding_Machine_2_utzjgo.jpg",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037216/Folding_Machine_1_axpone.jpg",
-    ],
+    video:
+    "",
+
     features: [
       "Adjustable folding length",
       "Variable speed control",
@@ -153,6 +141,7 @@ export const products: Product[] = [
   },
 
   {
+    machineNumber: "04",  
     slug: "stretch-wrapping-machine",
     name: "Stretch Wrapping Machine",
     category: "Wrapping Machines",
@@ -160,11 +149,7 @@ export const products: Product[] = [
       "PLC-controlled stretch wrapping machine for heavy and wide fabric roll packing.",
     description:
       "Stretch Wrapping Machine is designed for wrapping heavy, wide-width and narrow-width fabric rolls. The automated PLC cycle controls wrapping parameters such as rotation speed and film tension, giving secure roll protection during storage and transport.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037640/PLC-controlled_stretch_wrapping_machine_for_heavy_and_wide_fabric_roll_packing_2_opfxi1.jpg",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037640/PLC-controlled_stretch_wrapping_machine_for_heavy_and_wide_fabric_roll_packing_1_uqtp6k.jpg",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780037642/PLC-controlled_stretch_wrapping_machine_for_heavy_and_wide_fabric_roll_packing_1_devsif.png",
-    ],
+    video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781767033/inspection_Machine_with_rapping_machine_cvilnv.mp4", 
     features: [
       "PLC controlled automatic wrapping",
       "Adjustable rotation speed",
@@ -204,6 +189,7 @@ export const products: Product[] = [
   },
 
   {
+    machineNumber: "05",
     slug: "rotating-station",
     name: "Rotating Station",
     category: "Material Handling",
@@ -211,11 +197,7 @@ export const products: Product[] = [
       "Rotating station for easy turning, positioning and handling of fabric rolls or batches.",
     description:
       "Rotating Station is used in textile processing lines to rotate, position and handle fabric rolls or batches safely. It improves material movement, reduces operator effort and supports continuous production flow.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038071/Rotating_station_1_iy3dlo.png",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038071/Rotating_station_1_svapyx.jpg",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038072/Rotating_station_2_bgyluk.jpg",
-    ],
+    video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766625/Rotating_Station_qswdt8.mp4",
     features: [
       "Rotating platform mechanism",
       "Heavy-duty load capacity",
@@ -251,18 +233,15 @@ export const products: Product[] = [
   },
 
   {
-    slug: "batching-machine",
-    name: "Batching Machine",
-    category: "Batching Machines",
+    machineNumber: "06",
+    slug: " batching-machine",
+    name: " Batching Machine",
+    category: " Batching Machines",
     shortDescription:
       "Textile batching machine for uniform fabric batching with controlled tension.",
     description:
       "Batching Machine is used to wind fabric into batches with proper alignment and tension. It is suitable for dyeing, processing and finishing lines where fabric needs to be collected uniformly for the next operation.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038527/Batching_Machine_1_mtymrf.jpg",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038527/Batching_Machine_2_mwedab.jpg",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038527/Batching_Machine_1_ulq71w.png",
-    ],
+    video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766594/Batching_Machine_un7cn4.mp4",
     features: [
       "Uniform fabric batching",
       "Variable speed control",
@@ -299,6 +278,7 @@ export const products: Product[] = [
   },
 
   {
+    machineNumber: "07",
     slug: "rolling-machine",
     name: "Rolling Machine",
     category: "Rolling Machines",
@@ -306,11 +286,7 @@ export const products: Product[] = [
       "Fabric rolling machine for neat, uniform and tension-controlled fabric rolls.",
     description:
       "Rolling Machine is used to roll fabric smoothly after inspection, finishing or processing. It provides uniform roll formation, accurate length measurement and controlled fabric tension.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038979/roling_machine_r7wnzf.png",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038979/Rolling_machine_myehpi.png",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780038978/386_v5socn.jpg",
-    ],
+    video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766922/Rolling_Machine-1_hrsucy.mp4",
     features: [
       "Uniform fabric rolling",
       "Variable speed drive",
@@ -348,18 +324,15 @@ export const products: Product[] = [
   },
 
   {
-    slug: "desizing-tank",
-    name: "Desizing Tank",
+    machineNumber: "08",
+    slug: "d-sizing-tank",
+    name: "D-Sizing Tank",
     category: "Processing Machines",
     shortDescription:
       "Textile desizing tank for removing size material from fabric before further processing.",
     description:
       "Desizing Tank is used in textile wet processing to remove sizing agents from fabric before bleaching, dyeing or finishing. It supports proper fabric preparation and improves processing quality.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780039493/ds3_yzpa6g.png",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780039494/ds_2_-_Copy_orh9rc.png",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780039496/ds_xmwecq.png",
-    ],
+    video: "",
     features: [
       "Heavy-duty tank construction",
       "Fabric guide rollers",
@@ -396,6 +369,7 @@ export const products: Product[] = [
   },
 
   {
+    machineNumber: "09",
     slug: "conveyor-belt",
     name: "Conveyor Belt",
     category: "Material Handling",
@@ -403,11 +377,7 @@ export const products: Product[] = [
       "Industrial conveyor belt system for smooth material movement in textile production lines.",
     description:
       "Conveyor Belt is used for transferring fabric rolls, packed goods or materials between different production stages. It improves workflow, reduces manual movement and supports continuous operation.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781077258/162_gxayd0.jpg",
-    gallery: [
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781077258/162_gxayd0.jpg",
-      "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781077258/162_gxayd0.jpg",
-    ],
+    video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781767035/Conveyer_Belt_codz8j.mp4",
     features: [
       "Continuous belt movement",
       "Variable speed option",
@@ -444,9 +414,9 @@ export const products: Product[] = [
     ],
   },
 
-// Add these inside your products array
 
 {
+    machineNumber: "10",
   slug: "jigger",
   name: "Jigger",
   category: "Dyeing Machines",
@@ -454,11 +424,7 @@ export const products: Product[] = [
     "Textile dyeing jigger machine for controlled fabric dyeing and wet processing.",
   description:
     "Jigger machine is used in textile dyeing and wet processing for uniform dye application on woven fabrics. It helps maintain controlled fabric movement, proper chemical contact and consistent shade results.",
-  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746550/1000007667_xwhh5e.jpg",
-  gallery: [
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746550/1000007667_xwhh5e.jpg",
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746550/1000007667_xwhh5e.jpg",
-  ],
+  video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766963/Fabric_Machine_eljdoq.mp4",
   features: [
     "Uniform fabric dyeing",
     "Controlled fabric movement",
@@ -496,6 +462,7 @@ export const products: Product[] = [
 },
 
 {
+  machineNumber: "11",
   slug: "cutting-machine",
   name: "Cutting Machine",
   category: "Garmenting Machines",
@@ -503,11 +470,7 @@ export const products: Product[] = [
     "Garment cutting machine for accurate and efficient fabric cutting operations.",
   description:
     "Cutting Machine is used in garmenting units for accurate cutting of fabric layers before stitching and production. It improves cutting speed, reduces manual effort and supports consistent garment production quality.",
-  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078203/2148828328_1_xzswj2.jpg",
-  gallery: [
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078203/2148828328_1_xzswj2.jpg",
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078203/2148828328_1_xzswj2.jpg",
-  ],
+  video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781767385/Cutting_Machine_n7cq3d.mp4",
   features: [
     "Accurate fabric cutting",
     "Suitable for multiple fabric layers",
@@ -545,6 +508,7 @@ export const products: Product[] = [
 },
 
 {
+  machineNumber: "12",
   slug: "a-frame-trolley",
   name: "A-Frame Trolley",
   category: "Material Handling Equipments",
@@ -552,11 +516,7 @@ export const products: Product[] = [
     "A-frame trolley for safe fabric roll, batch and material movement in textile units.",
   description:
     "A-Frame Trolley is used for safe handling and movement of fabric rolls, batches and textile materials inside production areas. Its strong A-frame structure provides stability and easy movement during material transfer.",
-  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078291/Screenshot_2026-06-10_132452_fdjoj7.png",
-  gallery: [
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078291/Screenshot_2026-06-10_132452_fdjoj7.png",
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078291/Screenshot_2026-06-10_132452_fdjoj7.png",
-  ],
+  video: "",
   features: [
     "Strong A-frame structure",
     "Heavy-duty wheels",
@@ -572,6 +532,7 @@ export const products: Product[] = [
     "Warehouse material handling",
   ],
   specifications: [
+    { label: "Machine No", value: "01" },
     { label: "Structure", value: "A-frame MS fabrication" },
     { label: "Wheels", value: "Heavy-duty caster wheels" },
     { label: "Capacity", value: "Customizable" },
@@ -594,6 +555,7 @@ export const products: Product[] = [
 },
 
 {
+  machineNumber: "13",
   slug: "box-trolley",
   name: "Box Trolley",
   category: "Material Handling Equipments",
@@ -601,11 +563,9 @@ export const products: Product[] = [
     "Box trolley for carrying fabric, garments and production materials safely.",
   description:
     "Box Trolley is used for handling fabrics, garments, accessories and production materials inside textile and garment units. It helps keep materials organized and improves internal movement efficiency.",
-  image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078199/857_gutxa4.jpg",
-  gallery: [
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078199/857_gutxa4.jpg",
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1781078199/857_gutxa4.jpg",
-  ],
+    video:
+    "",
+
   features: [
     "Box-type storage design",
     "Heavy-duty wheels",
@@ -639,6 +599,290 @@ export const products: Product[] = [
       question: "Can box trolley size be made as per factory layout?",
       answer:
         "Yes, trolley dimensions can be customized based on your production layout.",
+    },
+  ],
+},
+
+{
+  machineNumber: "14",
+  slug: "brushing-machine",
+  name: "Brushing Machine",
+  category: "Finishing Machines",
+  shortDescription:
+    "Textile brushing machine for improving fabric surface finish, softness and appearance.",
+  description:
+    "Brushing Machine is used in textile finishing to raise and clean the fabric surface using rotating brushes. It improves fabric softness, removes loose fibers and gives a better surface finish for garments, home textiles and processed fabrics.",
+
+  video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766591/Bressing_rx4dyz.mp4",
+
+  features: [
+    "Rotating brush roller system",
+    "Adjustable fabric tension",
+    "Variable speed control",
+    "Smooth fabric feeding",
+    "Dust and loose fiber removal",
+    "Heavy-duty fabricated structure",
+    "Operator-friendly control panel",
+  ],
+
+  applications: [
+    "Fabric finishing",
+    "Textile processing units",
+    "Garment fabric preparation",
+    "Home textile production",
+    "Surface cleaning and softening",
+  ],
+
+  specifications: [
+    { label: "Fabric Type", value: "Woven / knitted / processed fabric" },
+    { label: "Working Width", value: "Customizable as per requirement" },
+    { label: "Brush Roller", value: "Rotating brush roller system" },
+    { label: "Speed", value: "Variable speed control" },
+    { label: "Power Supply", value: "415V / 3 Phase" },
+    { label: "Structure", value: "Heavy-duty MS fabricated frame" },
+  ],
+
+  benefits: [
+    "Improves fabric softness",
+    "Enhances surface finish",
+    "Removes loose fibers and dust",
+    "Improves fabric appearance",
+    "Reduces manual finishing work",
+  ],
+
+  faqs: [
+    {
+      question: "Can brush pressure be adjusted?",
+      answer:
+        "Yes, brush pressure and fabric tension can be adjusted based on fabric type and finishing requirement.",
+    },
+  ],
+},
+{
+  machineNumber: "15",
+  slug: "drying-range-machine",
+  name: "Drying Range Machine",
+  category: "Drying Machines",
+  shortDescription:
+    "Textile drying range machine for continuous fabric drying with controlled temperature and speed.",
+  description:
+    "Drying Range Machine is used in textile processing for continuous drying of fabric after washing, dyeing, bleaching or wet processing. It helps remove moisture evenly, maintain fabric quality and improve production speed in finishing lines.",
+
+  video: "",
+
+  features: [
+    "Continuous fabric drying system",
+    "Controlled hot air circulation",
+    "Variable speed drive",
+    "Adjustable temperature control",
+    "Fabric guiding and tension control",
+    "Heavy-duty insulated chamber",
+    "Operator-friendly control panel",
+  ],
+
+  applications: [
+    "Fabric drying",
+    "Textile processing units",
+    "Dyeing and finishing lines",
+    "Washing line drying",
+    "Bleaching and wet processing units",
+  ],
+
+  specifications: [
+    { label: "Fabric Type", value: "Woven / knitted / processed fabric" },
+    { label: "Working Width", value: "Customizable as per requirement" },
+    { label: "Operation", value: "Continuous drying" },
+    { label: "Heating System", value: "Steam / electric / thermic fluid optional" },
+    { label: "Speed", value: "Variable speed control" },
+    { label: "Power Supply", value: "415V / 3 Phase" },
+    { label: "Structure", value: "Heavy-duty MS fabricated frame" },
+  ],
+
+  benefits: [
+    "Uniform fabric drying",
+    "Improves production efficiency",
+    "Reduces moisture content",
+    "Maintains fabric quality",
+    "Suitable for continuous processing",
+  ],
+
+  faqs: [
+    {
+      question: "Can drying temperature be adjusted?",
+      answer:
+        "Yes, drying temperature and machine speed can be adjusted based on fabric type and process requirement.",
+    },
+  ],
+},
+{
+  machineNumber: "16",
+  slug: "j-box-machine",
+  name: "J-Box Machine",
+  category: "Processing Machines",
+  shortDescription:
+    "Textile J-Box machine for continuous fabric storage, relaxation and smooth feeding in processing lines.",
+  description:
+    "J-Box Machine is used in textile processing lines to store and relax fabric temporarily during continuous operations. It helps maintain smooth fabric flow, prevents tension variation and supports washing, dyeing, bleaching, desizing and finishing processes.",
+
+  video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766629/J-Box_Machine_tmfwet.mp4",
+
+  features: [
+    "Continuous fabric storage system",
+    "Smooth fabric feeding",
+    "Fabric relaxation arrangement",
+    "Tension-free fabric handling",
+    "Heavy-duty fabricated structure",
+    "Easy integration with processing line",
+    "Operator-friendly design",
+  ],
+
+  applications: [
+    "Textile processing lines",
+    "Washing range",
+    "Dyeing and bleaching units",
+    "Desizing process",
+    "Fabric relaxation and storage",
+    "Finishing lines",
+  ],
+
+  specifications: [
+    { label: "Fabric Type", value: "Woven / knitted / processed fabric" },
+    { label: "Operation", value: "Continuous fabric storage" },
+    { label: "Working Width", value: "Customizable as per requirement" },
+    { label: "Structure", value: "Heavy-duty MS / SS fabricated frame" },
+    { label: "Drive", value: "Variable speed drive optional" },
+    { label: "Power Supply", value: "415V / 3 Phase" },
+    { label: "Application", value: "Fabric relaxation and line balancing" },
+  ],
+
+  benefits: [
+    "Maintains continuous fabric flow",
+    "Reduces fabric tension variation",
+    "Improves process stability",
+    "Prevents fabric stretching",
+    "Supports smooth line operation",
+  ],
+
+  faqs: [
+    {
+      question: "Why is J-Box used in textile processing?",
+      answer:
+        "J-Box is used to temporarily store and relax fabric during continuous processing, helping maintain smooth fabric flow and reduce tension variation.",
+    },
+  ],
+},
+{
+  machineNumber: "17",
+  slug: "gray-batching-machine",
+  name: "Gray Batching Machine",
+  category: "Batching Machines",
+  shortDescription:
+    "Gray batching machine for uniform batching of gray fabric with proper alignment and controlled tension.",
+  description:
+    "Gray Batching Machine is used in textile processing to batch gray fabric neatly and uniformly before dyeing, washing, bleaching or further finishing operations. It helps maintain proper fabric alignment, controlled tension and smooth fabric handling during continuous production.",
+
+  video: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766603/Gray_Batching_Machine_qt4sil.mp4",
+
+  features: [
+    "Uniform gray fabric batching",
+    "Variable speed control",
+    "Fabric tension control system",
+    "Edge guiding option",
+    "Forward and reverse operation",
+    "Heavy-duty batching rollers",
+    "Operator-friendly control panel",
+  ],
+
+  applications: [
+    "Gray fabric batching",
+    "Textile mills",
+    "Dyeing units",
+    "Processing plants",
+    "Finishing preparation",
+    "Fabric inspection departments",
+  ],
+
+  specifications: [
+    { label: "Fabric Type", value: "Gray woven / knitted fabric" },
+    { label: "Working Width", value: "Customizable as per requirement" },
+    { label: "Operation", value: "Forward / reverse batching" },
+    { label: "Drive", value: "Variable speed AC drive" },
+    { label: "Power Supply", value: "415V / 3 Phase" },
+    { label: "Structure", value: "Heavy-duty MS fabricated frame" },
+  ],
+
+  benefits: [
+    "Neat and uniform batching",
+    "Reduces fabric wrinkles",
+    "Improves fabric alignment",
+    "Reduces manual handling",
+    "Suitable for continuous production",
+  ],
+
+  faqs: [
+    {
+      question: "Is this machine suitable for gray fabric before dyeing?",
+      answer:
+        "Yes, Gray Batching Machine is suitable for batching gray fabric before dyeing, washing, bleaching and other processing operations.",
+    },
+  ],
+},
+{
+  machineNumber: "18",
+  slug: "continuous-washing-machine",
+  name: "Continuous Washing Machine",
+  category: "Washing Machines",
+  shortDescription:
+    "Continuous washing machine for efficient fabric washing, rinsing and chemical removal in textile processing lines.",
+  description:
+    "Continuous Washing Machine is used in textile wet processing for washing fabric continuously after dyeing, bleaching, desizing or printing. It helps remove chemicals, impurities and excess dye while maintaining smooth fabric movement and consistent washing quality.",
+
+  video: "",
+
+  features: [
+    "Continuous fabric washing system",
+    "Multiple washing compartments",
+    "Fabric guide roller arrangement",
+    "Adjustable water flow control",
+    "Variable speed drive",
+    "Heavy-duty tank construction",
+    "Easy drain and cleaning system",
+    "Operator-friendly control panel",
+  ],
+
+  applications: [
+    "Fabric washing",
+    "Textile wet processing",
+    "Dyeing and bleaching units",
+    "Desizing process",
+    "Printing after-wash",
+    "Finishing preparation",
+  ],
+
+  specifications: [
+    { label: "Fabric Type", value: "Woven / knitted / processed fabric" },
+    { label: "Operation", value: "Continuous washing" },
+    { label: "Working Width", value: "Customizable as per requirement" },
+    { label: "Drive", value: "Variable speed AC drive" },
+    { label: "Tank Material", value: "MS / SS as per requirement" },
+    { label: "Power Supply", value: "415V / 3 Phase" },
+    { label: "Heating", value: "Steam / electric optional" },
+  ],
+
+  benefits: [
+    "Improves fabric washing quality",
+    "Removes chemicals and impurities",
+    "Supports continuous production",
+    "Reduces manual handling",
+    "Maintains smooth fabric flow",
+    "Improves process efficiency",
+  ],
+
+  faqs: [
+    {
+      question: "Can this machine be used after dyeing or bleaching?",
+      answer:
+        "Yes, Continuous Washing Machine is suitable for washing fabric after dyeing, bleaching, desizing, printing and other wet processing operations.",
     },
   ],
 },

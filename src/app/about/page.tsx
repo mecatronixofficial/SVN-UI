@@ -13,6 +13,7 @@ import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
 import StatsCounter from "@/components/StatsCounter";
 import CTASection from "@/components/CTASection";
+import Image from "next/image";
 import { siteConfig, timeline } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function AboutPage() {
     <>
       <PageHero
         title="About SVN Enterprises"
-        subtitle="A decade of building dependable machinery for textile mills, garment units and commercial laundries across India."
+        subtitle="A decade of building dependable machinery for textile mills, garment units and commercial establishments across India."
         breadcrumbs={[{ label: "About" }]}
       />
 
@@ -37,9 +38,9 @@ export default function AboutPage() {
             <div className="rounded-3xl overflow-hidden shadow-industrial">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1779958260/60001_bavcok.jpg"
+                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1781762585/WhatsApp_Image_2026-06-18_at_11.23.36_AM_r18db4.jpg"
                 alt="SVN Enterprises factory"
-                className="h-[680px] w-full object-cover"
+                className="h-[600px] w-full object-cover"
               />
             </div>
             <div className="hidden md:block absolute -top-6 -left-6 h-24 w-24 stripe-bg rounded-xl" />
@@ -166,7 +167,7 @@ Driven by engineering excellence, advanced in-house design capabilities, and a c
             <SectionTitle
               eyebrow="Manufacturing Excellence"
               title="A facility built around quality"
-              description="Our Erode facility is organised into clear workstations — metal fabrication, welding, assembly, electricals and final QC — so every machine passes through structured checkpoints."
+              description="Our Erode facility is organised into clear workstations — metal fabrication, Laser Cutting,  welding, Bending, assembly, electricals and final QC — so every machine passes through structured checkpoints."
               light
             />
             <div className="grid gap-3 sm:grid-cols-2">
@@ -198,39 +199,62 @@ Driven by engineering excellence, advanced in-house design capabilities, and a c
       </section>
 
       {/* CEO Message */}
-      <section className="section-padding container-x">
-        <div className="relative overflow-hidden rounded-3xl bg-brand-50/40 border border-steel-200 p-8 md:p-16">
-          <FaQuoteLeft className="absolute top-8 right-12 h-32 w-32 text-brand-100/60" />
-          <div className="relative max-w-3xl">
-            <span className="text-xs uppercase tracking-[0.25em] text-accent-dark font-semibold">
-              Message from our CEO
-            </span>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-brand-900">
-              &ldquo;Build it right the first time.&rdquo;
-            </h2>
-            <p className="mt-5 text-steel-600 leading-relaxed">
-              For more than a decade, SVN Enterprises has stood for one simple
-              principle — build it right the first time. We treat every order,
-              big or small, with the same seriousness, because our customers
-              depend on these machines to run their business. Thank you for
-              trusting us. We will continue to earn that trust, one machine at
-              a time.
+     <section className="section-padding container-x">
+  <div className="relative overflow-hidden rounded-3xl bg-brand-50/40 border border-steel-200 p-8 md:p-16">
+    <FaQuoteLeft className="absolute top-8 right-12 h-32 w-32 text-brand-100/60" />
+
+    <div className="relative grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+      {/* Left Content */}
+      <div className="max-w-3xl">
+        <span className="text-xs uppercase tracking-[0.25em] text-accent-dark font-semibold">
+          Message from our CEO
+        </span>
+
+        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-brand-900">
+          &ldquo;Build it right the first time.&rdquo;
+        </h2>
+
+        <p className="mt-5 text-steel-600 leading-relaxed">
+          For more than a decade, SVN Enterprises has stood for one simple
+          principle — build it right the first time. We treat every order,
+          big or small, with the same seriousness, because our customers
+          depend on these machines to run their business. Thank you for
+          trusting us. We will continue to earn that trust, one machine at
+          a time.
+        </p>
+
+        <div className="mt-8 flex items-center gap-4">
+          <div className="grid h-14 w-14 place-items-center rounded-full bg-brand-700 text-white font-bold">
+            RS
+          </div>
+
+          <div>
+            <p className="font-display text-lg font-bold text-brand-900">
+              Randhir Singh
             </p>
-            <div className="mt-8 flex items-center gap-4">
-              <div className="grid h-14 w-14 place-items-center rounded-full bg-brand-700 text-white font-bold">
-                SG
-              </div>
-              <div>
-                <p className="font-display text-lg font-bold text-brand-900">
-                  S Guru
-                </p>
-                <p className="text-sm text-steel-600">CEO, SVN Enterprises</p>
-              </div>
-            </div>
+            <p className="text-sm text-steel-600">CEO, SVN Enterprises</p>
           </div>
         </div>
-      </section>
+      </div>
 
+      {/* Right CEO Image */}
+      <div className="relative mx-auto w-full max-w-sm">
+        <div className="absolute -inset-4 rounded-3xl bg-brand-100/60 blur-2xl" />
+
+        <div className="relative overflow-hidden rounded-3xl border border-steel-200 bg-white shadow-soft">
+          <Image
+            src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1781763445/67534d0a-b239-4a52-827b-1674741cc2ed_rg5xqx.png"
+            alt="Randhir Singh - CEO of SVN Enterprises"
+            width={350}
+            height={400}
+            className="h-[400px] w-full object-cover"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
       {/* Team Section */}
       <section className="section-padding container-x">
         <SectionTitle
@@ -242,9 +266,9 @@ Driven by engineering excellence, advanced in-house design capabilities, and a c
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { role: "Leadership", count: "1", note: "CEO & Founder" },
-            { role: "Engineering & Design", count: "2", note: "Mech. Engineers" },
-            { role: "Fabrication & Assembly", count: "5", note: "Skilled Workers" },
-            { role: "Service & Support", count: "2", note: "Field Technicians" },
+            { role: "Engineering & Design", count: "4", note: "Mech. Engineers" },
+            { role: "Fabrication & Assembly", count: "10", note: "Skilled Workers" },
+            { role: "Service & Support", count: "4", note: "Field Technicians" },
           ].map((t) => (
             <div
               key={t.role}
@@ -276,6 +300,8 @@ Driven by engineering excellence, advanced in-house design capabilities, and a c
                 "On-site installation & operator training",
                 "Long-standing spare parts availability",
                 "Direct relationship with our CEO and senior team",
+                "ERP- Fabrication-Inventory-Delivery-Installation-After Sales Service",
+                "Packing and dispatch of machines with proper documentation",
               ].map((p) => (
                 <li
                   key={p}

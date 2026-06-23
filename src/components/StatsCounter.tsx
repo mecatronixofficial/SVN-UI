@@ -17,14 +17,24 @@ function CountUp({
 
   useEffect(() => {
     if (!inView) return;
+
     let startTime: number | null = null;
-    const step = (ts: number) => {
-      if (startTime === null) startTime = ts;
-      const progress = Math.min((ts - startTime) / duration, 1);
+    let animationFrame: number;
+
+    const step = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp;
+
+      const progress = Math.min((timestamp - startTime) / duration, 1);
       setValue(Math.floor(progress * end));
-      if (progress < 1) requestAnimationFrame(step);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(step);
+      }
     };
-    requestAnimationFrame(step);
+
+    animationFrame = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(animationFrame);
   }, [inView, end, duration]);
 
   return <span ref={ref}>{value}</span>;
@@ -32,50 +42,61 @@ function CountUp({
 
 export default function StatsCounter({ light = false }: { light?: boolean }) {
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-      {stats.map((s, i) => (
-        <motion.div
-          key={s.label}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.08 }}
-          className={`relative rounded-2xl p-6 md:p-8 border ${
-            light
-              ? "bg-white/5 backdrop-blur border-white/10"
-              : "bg-white border-steel-200 shadow-soft"
-          }`}
-        >
-          <div className="flex items-end gap-1">
-            <span
-              className={`font-display text-4xl md:text-5xl font-bold ${
-                light ? "text-white" : "text-brand-900"
-              }`}
-            >
-              <CountUp end={s.value} />
-            </span>
-            <span
-              className={`font-display text-3xl md:text-4xl font-bold ${
-                light ? "text-accent" : "text-accent-dark"
-              }`}
-            >
-              {s.suffix}
-            </span>
-          </div>
-          <p
-            className={`mt-2 text-xs uppercase tracking-widest ${
-              light ? "text-brand-200" : "text-steel-600"
+    <div className="flex flex-wrap items-center justify-center gap-6 ">
+      {stats.map((s, i) => {
+        const isNumber = typeof s.value === "number";
+
+        return (
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.08 }}
+            className={`relative flex min-h-[270px] w-[270px] flex-col justify-center items-center rounded-2xl border p-6 md:p-8 ${
+              light
+                ? "border-white/10 bg-white/5 backdrop-blur"
+                : "border-steel-200 bg-white shadow-soft"
             }`}
           >
-            {s.label}
-          </p>
-          <div
-            className={`absolute bottom-3 right-3 h-1 w-10 ${
-              light ? "bg-accent" : "bg-accent-dark"
-            }`}
-          />
-        </motion.div>
-      ))}
+            <div className="flex items-start gap-1">
+              <span
+                className={`font-display font-bold leading-tight ${
+                  isNumber
+                    ? "text-xl md:text-5xl"
+                    : "text-xl md:text-2xl lg:text-xl"
+                } ${light ? "text-white" : "text-brand-900"}`}
+              >
+                {isNumber ? <CountUp end={s.value} /> : s.value}
+              </span>
+
+              {s.suffix && (
+                <span
+                  className={`font-display text-xl font-bold md:text-4xl ${
+                    light ? "text-accent" : "text-accent-dark"
+                  }`}
+                >
+                  {s.suffix}
+                </span>
+              )}
+            </div>
+
+            <p
+              className={`mt-4 text-xs uppercase tracking-widest ${
+                light ? "text-brand-200" : "text-steel-600"
+              }`}
+            >
+              {s.label}
+            </p>
+
+            <div
+              className={`absolute bottom-4 right-4 h-1 w-10 ${
+                light ? "bg-accent" : "bg-accent-dark"
+              }`}
+            />
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
