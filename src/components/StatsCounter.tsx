@@ -4,13 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { stats } from "@/data/site";
 
-function CountUp({
-  end,
-  duration = 1500,
-}: {
-  end: number;
-  duration?: number;
-}) {
+function CountUp({ end, duration = 1500 }: { end: number; duration?: number }) {
   const [value, setValue] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
@@ -67,7 +61,7 @@ export default function StatsCounter({ light = false }: { light?: boolean }) {
                     : "text-xl md:text-2xl lg:text-xl"
                 } ${light ? "text-white" : "text-brand-900"}`}
               >
-                {isNumber ? <CountUp end={s.value} /> : s.value}
+                {isNumber ? <CountUp end={Number(s.value)} /> : s.value}
               </span>
 
               {s.suffix && (
