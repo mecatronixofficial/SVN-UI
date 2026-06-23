@@ -2,160 +2,126 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaArrowRight, FaPhoneAlt, FaPlay } from "react-icons/fa";
+import {
+  FaArrowRight,
+  FaPhoneAlt,
+  FaCheckCircle,
+  FaIndustry,
+  FaTools,
+} from "react-icons/fa";
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-brand-950 text-white">
-      {/* Background image with dark overlay */}
+    <section className="relative isolate overflow-hidden bg-[#07111f] text-white">
+      {/* Clear background image */}
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-center"
+        className="absolute inset-0 -z-20 bg-cover bg-center scale-105"
         style={{
           backgroundImage:
-            "url('https://res.cloudinary.com/ddpfxvydm/image/upload/v1779953947/handsome-carpenter-working-with-wood_yasooi.jpg')",
+            "url('https://res.cloudinary.com/ddpfxvydm/image/upload/v1780746508/Shirpur-Inspection_machine_x8ordq.jpg')",
         }}
         aria-hidden
       />
-      <div
-        className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-950/95 via-brand-900/85 to-brand-800/60"
-        aria-hidden
-      />
-      <div
-        className="absolute inset-0 -z-10 blueprint-bg opacity-40"
-        aria-hidden
-      />
 
-      <div className="container-x relative py-24 md:py-32 lg:py-40 grid lg:grid-cols-12 gap-10 items-center">
-        <div className="lg:col-span-7">
+      {/* Light overlay for image clarity */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#07111f]/95 via-[#07111f]/75 to-[#07111f]/25" />
+      <div className="absolute inset-0 -z-10 bg-black/20" />
+
+      {/* Premium glow */}
+      <div className="absolute left-0 top-0 -z-10 h-72 w-72 rounded-full bg-accent/25 blur-[100px]" />
+      <div className="absolute bottom-0 right-0 -z-10 h-96 w-96 rounded-full bg-cyan-400/20 blur-[120px]" />
+
+      <div className="container-x relative grid min-h-[90vh] items-center gap-12 py-24 lg:grid-cols-12">
+        {/* Left Content */}
+        <div className="max-w-3xl lg:col-span-7">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-brand-100"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white backdrop-blur"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            Established 2012 · Erode, Tamil Nadu
+            <FaIndustry className="text-accent" />
+            Trusted Manufacturer Since 2012
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-6 font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.05]"
+            className="mt-7 font-display text-4xl font-bold leading-[1.05] md:text-6xl lg:text-7xl"
           >
-            Reliable Industrial &{" "}
-            <span className="relative inline-block">
-              <span className="relative z-10 text-accent">Textile</span>
-              <span className="absolute -bottom-1 left-0 right-0 h-3 bg-accent/20 rounded-sm" />
+           Modern 
+            <span className="bg-gradient-to-r from-accent via-yellow-200 to-accent bg-clip-text text-transparent">
+           Textile Machinery Manufacturer
             </span>{" "}
-            Machinery Manufacturer Since 2012
+        
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 text-base md:text-lg text-brand-100 max-w-2xl leading-relaxed"
+            className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 md:text-lg"
           >
-            From fabric inspection lines to washer extractors, SVN Enterprises
-            builds purpose-engineered machinery for textile mills, garment
-            units and commercial laundries across India.
+            
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-3"
+            className="mt-8 flex flex-wrap gap-4"
           >
-            <Link href="/products" className="btn-accent">
-              Explore Products <FaArrowRight />
+            <Link
+              href="/products"
+              className="inline-flex items-center gap-3 rounded-full bg-accent px-7 py-4 text-sm font-bold text-brand-950 shadow-xl shadow-accent/25 transition hover:-translate-y-1 hover:bg-white"
+            >
+              Explore Machines <FaArrowRight />
             </Link>
-            <Link href="/contact" className="btn-ghost">
-              <FaPhoneAlt /> Contact Us
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-full border border-white/25 bg-white/10 px-7 py-4 text-sm font-bold text-white backdrop-blur transition hover:-translate-y-1 hover:bg-white hover:text-brand-950"
+            >
+              <FaPhoneAlt /> Request a Quote
             </Link>
           </motion.div>
 
-          {/* trust strip */}
+         
+          {/* Stats */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12 grid grid-cols-3 max-w-md gap-6 border-t border-white/10 pt-6"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4"
           >
             {[
-              { num: "13+", lbl: "Years" },
-              { num: "500+", lbl: "Machines" },
-              { num: "250+", lbl: "Clients" },
-            ].map((s) => (
-              <div key={s.lbl}>
-                <p className="font-display text-3xl font-bold text-white">
-                  {s.num}
+              ["13+", "Years"],
+              ["500+", "Machines"],
+              ["250+", "Clients"],
+              ["100%", "Quality"],
+            ].map(([num, label]) => (
+              <div
+                key={label}
+                className="rounded-2xl border border-white/15 bg-white/10 px-4 py-5 text-center backdrop-blur"
+              >
+                <p className="font-display text-3xl font-bold text-accent">
+                  {num}
                 </p>
-                <p className="text-xs uppercase tracking-widest text-brand-300 mt-1">
-                  {s.lbl}
+                <p className="mt-1 text-xs uppercase tracking-widest text-slate-300">
+                  {label}
                 </p>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* Floating spec card */}
-        <motion.div
-          initial={{ opacity: 0, x: 24 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.4 }}
-          className="lg:col-span-5 hidden lg:block"
-        >
-          <div className="relative">
-            <div className="absolute -top-4 -left-4 h-full w-full rounded-2xl border border-accent/30" />
-            <div className="relative rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 p-6 shadow-industrial">
-              <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.25em] text-brand-200">
-                  Spec Sheet · Featured
-                </span>
-                <span className="text-[10px] uppercase tracking-widest text-accent">
-                  Model · IRM-110
-                </span>
-              </div>
-              <h3 className="mt-3 font-display text-2xl text-white">
-                Inspection Cum Rolling Machine
-              </h3>
-              <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                {[
-                  ["Width", "110 inch"],
-                  ["Speed", "60 m/min"],
-                  ["Motor", "1.5 HP"],
-                  ["Voltage", "415V"],
-                  ["Lighting", "LED Panel"],
-                  ["Frame", "MS Welded"],
-                ].map(([k, v]) => (
-                  <div
-                    key={k}
-                    className="flex items-center justify-between border-b border-white/10 pb-2"
-                  >
-                    <span className="text-brand-200 text-xs uppercase tracking-wider">
-                      {k}
-                    </span>
-                    <span className="text-white font-medium">{v}</span>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/products/inspection-cum-rolling-machine"
-                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors"
-              >
-                View full specifications <FaArrowRight />
-              </Link>
-            </div>
-          </div>
-        </motion.div>
+       
+       
       </div>
 
-      {/* bottom industrial stripe */}
-      <div className="relative">
-        <div className="stripe-bg h-2" />
-      </div>
+      {/* Bottom premium line */}
+      <div className="h-2 bg-gradient-to-r from-accent via-yellow-200 to-accent" />
     </section>
   );
 }

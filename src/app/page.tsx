@@ -18,6 +18,7 @@ import StatsCounter from "@/components/StatsCounter";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FAQAccordion from "@/components/FAQAccordion";
+import FeaturedProductsSlider from "@/components/FeaturedProductsSlider";
 import CTASection from "@/components/CTASection";
 import { products } from "@/data/products";
 import { testimonials } from "@/data/testimonials";
@@ -34,7 +35,7 @@ const iconMap = {
 } as const;
 
 export default function Home() {
-  const featured = products.slice(0, 6);
+  const featured = products;
 
   return (
     <>
@@ -47,19 +48,19 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden shadow-industrial">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1779953948/main_q5bhdr.jpg"
+                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1781762583/WhatsApp_Image_2026-06-18_at_11.23.34_AM_1_rlufwq.jpg"
                 alt="SVN Enterprises manufacturing"
-                className="h-[600px] w-full object-cover"
+                className="h-[500px] w-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 rounded-xl bg-white/95 backdrop-blur p-2">
+              <div className="absolute bottom-4 left-4 right-4 rounded-xl   p-2">
                 <p className="text-xs uppercase tracking-widest text-accent-dark font-semibold">
                   Established
                 </p>
-                <p className="font-display text-3xl font-bold text-brand-900">
+                <p className="font-display text-3xl font-bold text-accent-dark">
                   2012
                 </p>
-                <p className="text-xs text-steel-600 mt-1">
+                <p className="text-xs text-accent-dark mt-1">
                   Erode, Tamil Nadu, India
                 </p>
               </div>
@@ -70,7 +71,7 @@ export default function Home() {
             <SectionTitle
               eyebrow="About SVN Enterprises"
               title="Engineering reliable machinery for India's textile industry"
-              description="SVN Enterprises is a leading Manufacturer based in Erode. Established in 2012, the company is committed to delivering high-quality industrial and textile machinery solutions with reliable service and customer satisfaction."
+              description="SVN Enterprises is a leading Manufacturer based in Erode, Tamil Nadu, India. Established in October 2012, the company is committed to delivering high-quality industrial and textile machinery solutions with reliable service and customer satisfaction."
             />
             <div className="grid grid-cols-2 gap-4 mt-6">
               {[
@@ -139,31 +140,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products */}
-      <section className="section-padding container-x">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
-          <div>
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-dark">
-              <span className="h-px w-8 bg-accent" />
-              Featured Products
-            </span>
-            <h2 className="mt-3 font-display text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-brand-900 heading-accent">
-              Machinery built for production floors
-            </h2>
-          </div>
-          <Link
-            href="/products"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-accent-dark"
-          >
-            View all products <FaArrowRight />
-          </Link>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p, i) => (
-            <ProductCard key={p.slug} product={p} index={i} />
-          ))}
-        </div>
-      </section>
+     <FeaturedProductsSlider featured={featured} />
 
       {/* Stats */}
       <section className="relative isolate section-padding bg-brand-950 text-white overflow-hidden">
@@ -198,20 +175,6 @@ export default function Home() {
         <ProcessTimeline />
       </section>
 
-      {/* Testimonials */}
-      <section className="section-padding bg-brand-50/40">
-        <div className="container-x">
-          <SectionTitle
-            eyebrow="Testimonials"
-            title="What our clients say"
-            description="Honest feedback from textile mills, garment units and laundry operators we have served."
-            align="center"
-          />
-          <div className="max-w-4xl mx-auto">
-            <TestimonialSlider items={testimonials} />
-          </div>
-        </div>
-      </section>
 
       {/* FAQ Preview */}
       <section className="section-padding container-x">
