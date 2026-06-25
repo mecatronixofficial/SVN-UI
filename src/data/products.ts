@@ -234,7 +234,7 @@ export const products: Product[] = [
 
   {
     machineNumber: "06",
-    slug: " batching-machine",
+    slug: "batching-machine",
     name: " Batching Machine",
     category: " Batching Machines",
     shortDescription:

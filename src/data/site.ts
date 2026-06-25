@@ -2,7 +2,7 @@ import type { Update, ProcessStep } from "@/types";
 
 export const siteConfig = {
   name: "SVN Enterprises",
-  url: "https://www.svnenterprises.in",
+  url: "https://www.svnenterprises.co.in",
   tagline: "Reliable Industrial & Textile Machinery Manufacturer Since 2012",
   description:
     "SVN Enterprises is a leading manufacturer of textile machinery, sewing machines, washer extractors and fabric inspection systems based in Erode, Tamil Nadu.",
