@@ -19,6 +19,30 @@ const display = Playfair_Display({
   display: "swap",
 });
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  logo: siteConfig.logoUrl,
+  description: siteConfig.description,
+  email: siteConfig.email.trim(),
+  telephone: `+91${siteConfig.phone.replace(/\D/g, "")}`,
+  foundingDate: siteConfig.established,
+  founder: {
+    "@type": "Person",
+    name: siteConfig.ceo,
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.line2.trim(),
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.pincode,
+    addressCountry: siteConfig.address.country,
+  },
+};
+
 export const metadata: Metadata = {
   title: {
     default: `${siteConfig.name} | ${siteConfig.tagline}`,
@@ -36,19 +60,36 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
-  metadataBase: new URL("https://www.svnenterprises.in"),
+  metadataBase: new URL(siteConfig.url),
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [{ url: siteConfig.faviconUrl, type: "image/png" }],
+    shortcut: [siteConfig.faviconUrl],
+    apple: [{ url: siteConfig.logoUrl, type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.svnenterprises.in",
+    url: siteConfig.url,
     siteName: siteConfig.name,
     title: `${siteConfig.name} - ${siteConfig.tagline}`,
     description: siteConfig.description,
+    images: [
+      {
+        url: siteConfig.logoUrl,
+        width: 512,
+        height: 512,
+        alt: `${siteConfig.name} logo`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
+    images: [siteConfig.logoUrl],
   },
   robots: {
     index: true,
@@ -64,6 +105,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${display.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <Navbar />
         <main className="min-h-screen pt-20">{children}</main>
         <Footer />

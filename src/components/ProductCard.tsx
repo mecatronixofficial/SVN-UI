@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaArrowRight, FaTag } from "react-icons/fa";
+import { FaArrowRight, FaImage, FaTag } from "react-icons/fa";
 import type { Product } from "@/types";
 
 export default function ProductCard({
@@ -9,19 +9,32 @@ export default function ProductCard({
   product: Product;
   index?: number;
 }) {
+  const videoSrc = product.video.trim();
+
   return (
     <article className="group overflow-hidden rounded-2xl border border-steel-200 bg-white shadow-soft transition-all hover:-translate-y-1 hover:shadow-industrial">
       <Link href={`/products/${product.slug}`} className="block">
         <div className="relative h-64 overflow-hidden bg-black">
-          <video
-            src={product.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
+          {videoSrc ? (
+            <video
+              src={videoSrc}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+          ) : (
+            <div className="grid h-full w-full place-items-center bg-brand-900 text-white">
+              <div className="text-center">
+                <FaImage className="mx-auto h-9 w-9 text-accent" />
+                <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-white/80">
+                  Media coming soon
+                </p>
+              </div>
+            </div>
+          )}
 
           <div className="absolute left-4 top-4 rounded-full bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
             Machine {product.machineNumber}
