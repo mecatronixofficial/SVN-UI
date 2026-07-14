@@ -1,28 +1,41 @@
-"use client";
+/* eslint-disable @next/next/no-img-element */
 
-type ProductGalleryProps = {
-  video: string;
+interface ProductGalleryProps {
+  video?: string;
+  image?: string;
   name: string;
-};
+}
 
-export default function ProductGallery({ video, name }: ProductGalleryProps) {
+export default function ProductGallery({
+  video,
+  image,
+  name,
+}: ProductGalleryProps) {
   return (
-    <div className="space-y-4">
-      <div className="overflow-hidden rounded-2xl border border-steel-200 bg-black shadow-soft">
+    <div className="overflow-hidden rounded-2xl border border-steel-200 bg-white shadow-soft">
+      {video ? (
         <video
           src={video}
-          title={name}
           controls
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          className="h-[480px] w-full object-cover"
+          className="h-full w-full object-cover"
         >
           Your browser does not support the video tag.
         </video>
-      </div>
+      ) : image ? (
+        <img
+          src={image}
+          alt={name}
+          className="h-full w-full object-cover"
+        />
+      ) : (
+        <div className="flex h-[500px] items-center justify-center bg-steel-50 text-steel-500">
+          No media available
+        </div>
+      )}
     </div>
   );
 }

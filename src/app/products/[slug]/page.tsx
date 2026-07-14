@@ -101,7 +101,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
         <div className="grid gap-10 lg:grid-cols-12">
           {/* Video Only */}
           <div className="lg:col-span-7">
-            <ProductGallery video={product.video} name={product.name} />
+            <ProductGallery
+  video={product.video}
+  image={product.image}
+  name={product.name}
+/>
           </div>
 
           {/* Quick info card */}

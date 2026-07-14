@@ -6,7 +6,8 @@ export type Product = {
   shortDescription: string;
   description: string;
 
-  video: string;
+  video?: string;
+  image?: string;
 
   features: string[];
   applications: string[];
@@ -20,7 +21,6 @@ export type Product = {
     answer: string;
   }[];
 };
-
 export interface Testimonial {
   id: number;
   name: string;
