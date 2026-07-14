@@ -2,9 +2,14 @@ import type { Update, ProcessStep } from "@/types";
 
 export const siteConfig = {
   name: "SVN Enterprises",
+  url: "https://www.svnenterprises.co.in",
   tagline: "Reliable Industrial & Textile Machinery Manufacturer Since 2012",
   description:
     "SVN Enterprises is a leading manufacturer of textile machinery, sewing machines, washer extractors and fabric inspection systems based in Erode, Tamil Nadu.",
+  logoUrl:
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780046262/SVN_Logo_oof9dn.png",
+  faviconUrl:
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780046262/SVN_Logo_oof9dn.png",
   ceo: "Randhir Singh",
   established: "2012",
   gstSince: "July 2017",
@@ -20,8 +25,8 @@ export const siteConfig = {
     country: "India",
     pincode: "638012",
   },
-  phone: "9994364935  ",
-  whatsapp: "9344035935",
+  phone: "9994364935",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "9344035935",
   email: "svnindustries2012@gmail.com ",
   workingHours: "Mon – Sat: 9:00 AM – 7:00 PM",
   socials: {
