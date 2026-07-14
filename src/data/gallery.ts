@@ -15,7 +15,7 @@ export const gallery: GalleryItem[] = [
   {
     id: 2,
     type: "video",
-    src: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781767029/Rope_Opener_zundk0.mp4",
+    src: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1784017503/rope_opner_oze4ji.mp4",
     alt: "Rope Opener and Slit Opener",
     name: "Rope Opener and Slit Opener",
     slug: "rope-opener-and-slit-opener",
@@ -25,7 +25,7 @@ export const gallery: GalleryItem[] = [
   {
     id: 3,
     type: "video",
-    src: "",
+    src: "https://res.cloudinary.com/ddpfxvydm/video/upload/v1784017462/Folding_machine_neibk6.mp4",
     alt: "Folding Machine",
     name: "Folding Machine",
     slug: "folding-machine",
@@ -72,16 +72,7 @@ export const gallery: GalleryItem[] = [
     category: "Rolling Machines",
     height: "medium",
   },
-  {
-    id: 8,
-    type: "video",
-    src: "",
-    alt: "D-Sizing Tank",
-    name: "D-Sizing Tank",
-    slug: "d-sizing-tank",
-    category: "Processing Machines",
-    height: "medium",
-  },
+ 
   {
     id: 9,
     type: "video",
@@ -113,19 +104,19 @@ export const gallery: GalleryItem[] = [
     height: "medium",
   },
   {
-    id: 12,
-    type: "video",
-    src: "",
-    alt: "A-Frame Trolley",
-    name: "A-Frame Trolley",
-    slug: "a-frame-trolley",
-    category: "Material Handling Equipments",
-    height: "medium",
-  },
+  id: 12,
+  type: "image",
+  src: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784028888/a_frame_trolly_n2u9xi.png",
+  alt: "A-Frame Trolley",
+  name: "A-Frame Trolley",
+  slug: "a-frame-trolley",
+  category: "Material Handling Equipments",
+  height: "medium",
+},
   {
     id: 13,
-    type: "video",
-    src: "",
+    type: "image",
+    src: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784017455/Box_Trolly_orll3m.jpg",
     alt: "Box Trolley",
     name: "Box Trolley",
     slug: "box-trolley",
@@ -142,16 +133,7 @@ export const gallery: GalleryItem[] = [
     category: "Finishing Machines",
     height: "medium",
   },
-  {
-    id: 15,
-    type: "video",
-    src: "",
-    alt: "Drying Range Machine",
-    name: "Drying Range Machine",
-    slug: "drying-range-machine",
-    category: "Drying Machines",
-    height: "medium",
-  },
+ 
   {
     id: 16,
     type: "video",
@@ -172,16 +154,7 @@ export const gallery: GalleryItem[] = [
     category: "Batching Machines",
     height: "medium",
   },
-  {
-    id: 18,
-    type: "video",
-    src: "",
-    alt: "Continuous Washing Machine",
-    name: "Continuous Washing Machine",
-    slug: "continuous-washing-machine",
-    category: "Washing Machines",
-    height: "medium",
-  },
+ 
   {
   id: 19,
   type: "image",
@@ -227,6 +200,5 @@ export const galleryCategories: GalleryItem["category"][] = [
   "Garmenting Machines",
   "Material Handling Equipments",
   "Finishing Machines",
-  "Drying Machines",
-  "Washing Machines",
+
 ];
