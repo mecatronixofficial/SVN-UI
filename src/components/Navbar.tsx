@@ -73,15 +73,15 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
             aria-label="SVN Enterprises Home"
           >
-            <span className="grid h-11 w-11 place-items-center overflow-hidden ">
-              <Image
-                src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1780048822/ChatGPT_Image_May_29_2026_03_29_56_PM_ipsss6.png"
-                alt="SVN Logo"
-                width={44}
-                height={44}
-                className="object-contain"
-              />
-            </span>
+            <span className="relative h-12 w-12 flex-shrink-0">
+  <Image
+    src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030177/kkk_qltbtp.png"
+    alt="SVN Logo"
+    fill
+    className="object-contain"
+    priority
+  />
+</span>
             <span className="flex flex-col leading-tight">
               <span className="font-display text-lg font-bold text-brand-900">
                 SVN Enterprises

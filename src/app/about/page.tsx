@@ -16,10 +16,10 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 import { siteConfig, timeline } from "@/data/site";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "About Us",
   description:
-    "Learn more about SVN Enterprises — a leading textile machinery manufacturer based in Erode, Tamil Nadu since 2012.",
+    "Learn about SVN Enterprises, a trusted textile machinery manufacturer with years of engineering excellence.",
 };
 
 export default function AboutPage() {

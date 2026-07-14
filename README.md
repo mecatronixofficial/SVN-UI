@@ -132,7 +132,7 @@ Replace dummy values (phone, email, address, social links) in `src/data/site.ts`
 
 - Metadata defined per route via Next.js `metadata` export
 - Open Graph + Twitter tags in `layout.tsx`
-- `metadataBase` set to `https://www.svnenterprises.in` — update if your domain differs
+- `metadataBase` set to `https://www.svnenterprises.co.in` — update if your domain differs
 
 ---
 
