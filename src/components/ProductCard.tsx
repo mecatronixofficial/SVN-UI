@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
-import { FaArrowRight, FaTag } from "react-icons/fa";
+import { FaArrowRight, FaImage, FaTag } from "react-icons/fa";
 import type { Product } from "@/types";
 
 interface ProductCardProps {

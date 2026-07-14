@@ -7,6 +7,7 @@ import {
   FaChevronLeft,
   FaChevronRight,
   FaPlay,
+  FaImage,
 } from "react-icons/fa";
 import { gallery, galleryCategories } from "@/data/gallery";
 import type { GalleryItem } from "@/types";
@@ -26,6 +27,8 @@ export default function GalleryGrid({
 
   const heightCls = (h: GalleryItem["height"]) =>
     h === "tall" ? "h-[420px]" : h === "short" ? "h-[220px]" : "h-[320px]";
+
+  const hasMedia = (src: string) => src.trim().length > 0;
 
   function showNext() {
     if (activeIdx === null || filtered.length === 0) return;
@@ -59,54 +62,69 @@ export default function GalleryGrid({
       </div>
 
       <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 [column-fill:_balance]">
-        {filtered.map((item, i) => (
-          <motion.button
-            type="button"
-            key={item.id}
-            onClick={() => setActiveIdx(i)}
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
-            className={`group relative mb-4 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-xl ${heightCls(
-              item.height
-            )}`}
-          >
-            {item.type === "video" ? (
-              <>
-                <video
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  muted
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src={item.src} type="video/mp4" />
-                </video>
+        {filtered.map((item, i) => {
+          const mediaSrc = item.src.trim();
 
-                <div className="absolute inset-0 grid place-items-center">
-                  <div className="grid h-14 w-14 place-items-center rounded-full bg-white/90 text-brand-900">
-                    <FaPlay className="ml-1" />
+          return (
+            <motion.button
+              type="button"
+              key={item.id}
+              onClick={() => setActiveIdx(i)}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4, delay: (i % 6) * 0.05 }}
+              className={`group relative mb-4 block w-full break-inside-avoid cursor-zoom-in overflow-hidden rounded-xl ${heightCls(
+                item.height
+              )}`}
+            >
+              {hasMedia(mediaSrc) && item.type === "video" ? (
+                <>
+                  <video
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    muted
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={mediaSrc} type="video/mp4" />
+                  </video>
+
+                  <div className="absolute inset-0 grid place-items-center">
+                    <div className="grid h-14 w-14 place-items-center rounded-full bg-white/90 text-brand-900">
+                      <FaPlay className="ml-1" />
+                    </div>
+                  </div>
+                </>
+              ) : hasMedia(mediaSrc) ? (
+                <img
+                  src={mediaSrc}
+                  alt={item.alt}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              ) : (
+                <div className="grid h-full w-full place-items-center bg-brand-900 text-white">
+                  <div className="text-center">
+                    <FaImage className="mx-auto h-9 w-9 text-accent" />
+                    <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-white/80">
+                      Media coming soon
+                    </p>
                   </div>
                 </div>
-              </>
-            ) : (
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-            )}
+              )}
 
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-transparent opacity-60 transition-opacity group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-950/80 via-transparent opacity-60 transition-opacity group-hover:opacity-90" />
 
-            <div className="absolute bottom-0 left-0 p-4 text-left">
-              <span className="inline-block rounded bg-accent px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-900">
-                {item.category}
-              </span>
-              <p className="mt-2 text-sm font-medium text-white">{item.alt}</p>
-            </div>
-          </motion.button>
-        ))}
+              <div className="absolute bottom-0 left-0 p-4 text-left">
+                <span className="inline-block rounded bg-accent px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-900">
+                  {item.category}
+                </span>
+                <p className="mt-2 text-sm font-medium text-white">
+                  {item.alt}
+                </p>
+              </div>
+            </motion.button>
+          );
+        })}
       </div>
 
       <AnimatePresence>
@@ -157,22 +175,31 @@ export default function GalleryGrid({
               onClick={(e) => e.stopPropagation()}
               className="relative max-h-[85vh] max-w-5xl"
             >
-              {active.type === "video" ? (
+              {hasMedia(active.src) && active.type === "video" ? (
                 <video
                   className="max-h-[80vh] w-full rounded-xl bg-black shadow-industrial"
                   controls
                   autoPlay
                   playsInline
                 >
-                  <source src={active.src} type="video/mp4" />
+                  <source src={active.src.trim()} type="video/mp4" />
                   Your browser does not support video.
                 </video>
-              ) : (
+              ) : hasMedia(active.src) ? (
                 <img
-                  src={active.src}
+                  src={active.src.trim()}
                   alt={active.alt}
                   className="max-h-[85vh] w-auto rounded-xl object-contain shadow-industrial"
                 />
+              ) : (
+                <div className="grid h-[50vh] w-[min(88vw,720px)] place-items-center rounded-xl bg-brand-900 text-white shadow-industrial">
+                  <div className="text-center">
+                    <FaImage className="mx-auto h-12 w-12 text-accent" />
+                    <p className="mt-4 text-sm font-semibold uppercase tracking-widest text-white/80">
+                      Media coming soon
+                    </p>
+                  </div>
+                </div>
               )}
 
               <p className="mt-3 text-center text-white">
