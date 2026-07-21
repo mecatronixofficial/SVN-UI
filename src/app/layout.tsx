@@ -22,6 +22,30 @@ const display = Playfair_Display({
   display: "swap",
 });
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  logo: siteConfig.logoUrl,
+  description: siteConfig.description,
+  email: siteConfig.email.trim(),
+  telephone: `+91${siteConfig.phone.replace(/\D/g, "")}`,
+  foundingDate: siteConfig.established,
+  founder: {
+    "@type": "Person",
+    name: siteConfig.ceo,
+  },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.line2.trim(),
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    postalCode: siteConfig.address.pincode,
+    addressCountry: siteConfig.address.country,
+  },
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 

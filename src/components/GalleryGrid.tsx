@@ -19,40 +19,35 @@ type GalleryGridProps = {
 
 export default function GalleryGrid({
   filterDefault = "All",
-}: GalleryGridProps) 
-{
+}: GalleryGridProps) {
   const [filter, setFilter] = useState<string>(filterDefault);
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [failedMedia, setFailedMedia] = useState<Record<string, boolean>>({});
 
-  /*
-   * Remove records that do not contain a valid media URL.
-   * This prevents empty black cards and the empty-src browser warning.
-   */
-  const validGallery = useMemo(() => {
-    return gallery.filter((item) => {
-      return typeof item.src === "string" && item.src.trim().length > 0;
-    });
-  }, []);
+  const validGallery = useMemo(
+    () =>
+      gallery.filter(
+        (item) => typeof item.src === "string" && item.src.trim().length > 0,
+      ),
+    [],
+  );
 
   const filtered = useMemo(() => {
-    if (filter === "All") {
-      return validGallery;
-    }
+    if (filter === "All") return validGallery;
 
     return validGallery.filter((item) => item.category === filter);
   }, [filter, validGallery]);
 
   const active =
-    activeIdx !== null && filtered[activeIdx]
-      ? filtered[activeIdx]
-      : null;
+    activeIdx !== null && filtered[activeIdx] ? filtered[activeIdx] : null;
 
   const heightCls = (height: GalleryItem["height"]) => {
     if (height === "tall") return "h-[420px]";
     if (height === "short") return "h-[220px]";
     return "h-[320px]";
   };
+
+  const hasMedia = (src: string) => src.trim().length > 0;
 
   const handleMediaError = (itemId: string | number) => {
     setFailedMedia((previous) => ({
@@ -70,14 +65,11 @@ export default function GalleryGrid({
   const showPrevious = () => {
     if (activeIdx === null || filtered.length === 0) return;
 
-    setActiveIdx(
-      (activeIdx - 1 + filtered.length) % filtered.length
-    );
+    setActiveIdx((activeIdx - 1 + filtered.length) % filtered.length);
   };
 
   return (
     <div>
-      {/* Category filters */}
       <div className="mb-8 flex flex-wrap items-center gap-2">
         {["All", ...galleryCategories].map((category) => (
           <button
@@ -98,15 +90,12 @@ export default function GalleryGrid({
         ))}
       </div>
 
-      {/* Empty category message */}
       {filtered.length === 0 ? (
         <div className="rounded-2xl border border-steel-200 bg-steel-50 px-6 py-16 text-center">
           <FaImage className="mx-auto h-10 w-10 text-steel-400" />
-
           <h3 className="mt-4 text-lg font-semibold text-brand-950">
             No gallery media available
           </h3>
-
           <p className="mt-2 text-sm text-steel-600">
             Images and videos will be added soon.
           </p>
@@ -120,35 +109,21 @@ export default function GalleryGrid({
               <motion.button
                 key={item.id}
                 type="button"
-                onClick={() => {
-                  if (!mediaFailed) {
-                    setActiveIdx(index);
-                  }
-                }}
+                onClick={() => !mediaFailed && setActiveIdx(index)}
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{
-                  once: true,
-                  margin: "-50px",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: (index % 6) * 0.05,
-                }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.4, delay: (index % 6) * 0.05 }}
                 className={`group relative mb-4 block w-full break-inside-avoid overflow-hidden rounded-xl bg-steel-100 ${
-                  mediaFailed
-                    ? "cursor-default"
-                    : "cursor-zoom-in"
+                  mediaFailed ? "cursor-default" : "cursor-zoom-in"
                 } ${heightCls(item.height)}`}
               >
                 {mediaFailed ? (
                   <div className="flex h-full w-full flex-col items-center justify-center bg-steel-100 px-5 text-center">
                     <FaImage className="h-10 w-10 text-steel-400" />
-
                     <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-steel-500">
                       Media unavailable
                     </p>
-
                     <p className="mt-2 text-sm font-medium text-brand-950">
                       {item.alt}
                     </p>
@@ -162,10 +137,7 @@ export default function GalleryGrid({
                       preload="auto"
                       onError={() => handleMediaError(item.id)}
                     >
-                      <source
-                        src={item.src.trim()}
-                        type="video/mp4"
-                      />
+                      <source src={item.src.trim()} type="video/mp4" />
                     </video>
 
                     <div className="pointer-events-none absolute inset-0 grid place-items-center">
@@ -187,12 +159,10 @@ export default function GalleryGrid({
                 {!mediaFailed && (
                   <>
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-brand-950/90 via-brand-950/10 to-transparent opacity-70 transition-opacity group-hover:opacity-90" />
-
                     <div className="pointer-events-none absolute bottom-0 left-0 p-4 text-left">
                       <span className="inline-block rounded bg-accent px-2 py-1 text-[10px] font-semibold uppercase tracking-widest text-brand-900">
                         {item.category}
                       </span>
-
                       <p className="mt-2 text-sm font-medium text-white">
                         {item.alt}
                       </p>
@@ -205,7 +175,6 @@ export default function GalleryGrid({
         </div>
       )}
 
-      {/* Gallery modal */}
       <AnimatePresence>
         {active && (
           <motion.div
@@ -257,14 +226,8 @@ export default function GalleryGrid({
 
             <motion.div
               key={active.id}
-              initial={{
-                opacity: 0,
-                scale: 0.95,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               onClick={(event) => event.stopPropagation()}
               className="relative w-full max-w-5xl"
             >
@@ -277,11 +240,7 @@ export default function GalleryGrid({
                   playsInline
                   preload="auto"
                 >
-                  <source
-                    src={active.src.trim()}
-                    type="video/mp4"
-                  />
-
+                  <source src={active.src.trim()} type="video/mp4" />
                   Your browser does not support video playback.
                 </video>
               ) : (
@@ -296,7 +255,6 @@ export default function GalleryGrid({
                 <span className="mr-2 text-xs uppercase tracking-widest text-accent">
                   {active.category}
                 </span>
-
                 {active.alt}
               </p>
             </motion.div>
@@ -304,5 +262,5 @@ export default function GalleryGrid({
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }

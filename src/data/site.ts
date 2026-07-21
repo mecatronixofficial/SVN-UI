@@ -9,7 +9,6 @@ export const siteConfig = {
 
   description:
     "SVN Enterprises is a leading manufacturer of textile machinery, sewing machines, washer extractors and fabric inspection systems based in Erode, Tamil Nadu.",
-
   ceo: "Randhir Singh",
   established: "2012",
   gstSince: "July 2017",
@@ -27,10 +26,9 @@ export const siteConfig = {
     country: "India",
     pincode: "638012",
   },
-
   phone: "9994364935",
-  whatsapp: "9344035935",
-  email: "svnindustries2012@gmail.com",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "9344035935",
+  email: "svnindustries2012@gmail.com ",
   workingHours: "Mon – Sat: 9:00 AM – 7:00 PM",
 
   socials: {

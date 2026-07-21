@@ -1,9 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { FaPaperPlane, FaCheckCircle } from "react-icons/fa";
+import {
+  FaPaperPlane,
+  FaCheckCircle,
+  FaWhatsapp,
+  FaEnvelopeOpenText,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 import { products } from "@/data/products";
+import { siteConfig } from "@/data/site";
 
 interface FormState {
   name: string;
@@ -26,6 +32,8 @@ export default function ContactForm({
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [errors, setErrors] = useState<Partial<FormState>>({});
 
   function handleChange(
@@ -33,6 +41,7 @@ export default function ContactForm({
   ) {
     setForm({ ...form, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
+    setSubmitError("");
   }
 
   function validate() {
@@ -46,13 +55,48 @@ export default function ContactForm({
     return Object.keys(e).length === 0;
   }
 
-  function handleSubmit(ev: React.FormEvent) {
+  const whatsappMessage = [
+    `Hello ${siteConfig.name},`,
+    "",
+    "I want to send an enquiry.",
+    `Name: ${form.name || "-"}`,
+    `Email: ${form.email || "-"}`,
+    `Phone: ${form.phone || "-"}`,
+    `Product: ${form.product || "Not specified"}`,
+    "",
+    `Message: ${form.message || "-"}`,
+  ].join("\n");
+
+  const whatsappHref = `https://wa.me/${siteConfig.whatsapp.replace(
+    /\D/g,
+    ""
+  )}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  async function handleSubmit(ev: React.FormEvent) {
     ev.preventDefault();
     if (!validate()) return;
-    // In production: send to API endpoint
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
+
+    setSubmitting(true);
+    setSubmitError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
+
+        throw new Error(data?.error ?? "Unable to send enquiry.");
+      }
+
+      setSubmitted(true);
       setForm({
         name: "",
         email: "",
@@ -60,7 +104,15 @@ export default function ContactForm({
         product: defaultProduct,
         message: "",
       });
-    }, 4000);
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Unable to send enquiry. Please try WhatsApp or call us."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -78,6 +130,17 @@ export default function ContactForm({
           Thank you for reaching out. Our team will get back to you within one
           business day.
         </p>
+        <button
+          type="button"
+          onClick={() => {
+            setSubmitted(false);
+            setErrors({});
+            setSubmitError("");
+          }}
+          className="btn-primary mx-auto mt-6"
+        >
+          <FaEnvelopeOpenText /> Send Another Inquiry
+        </button>
       </motion.div>
     );
   }
@@ -177,9 +240,31 @@ export default function ContactForm({
         )}
       </div>
 
-      <button type="submit" className="btn-primary w-full sm:w-auto">
-        <FaPaperPlane /> Send Inquiry
+      <div className="w-full h-auto flex flex-row items-center justify-between">
+        <button
+        type="submit"
+        disabled={submitting}
+        className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+      >
+        <FaPaperPlane /> {submitting ? "Sending..." : "Send Email Inquiry"}
       </button>
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(event) => {
+          if (!validate()) event.preventDefault();
+        }}
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-green-600 px-5 py-3 text-sm font-semibold text-green-700 transition-colors hover:bg-green-600 hover:text-white sm:w-auto"
+      >
+        <FaWhatsapp /> Send on WhatsApp
+      </a>
+      </div>
+      {submitError && (
+        <p className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {submitError}
+        </p>
+      )}
       <p className="text-xs text-steel-500">
         Your details are kept confidential. We respond within one business day.
       </p>
