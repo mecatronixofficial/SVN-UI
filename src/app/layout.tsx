@@ -108,9 +108,9 @@ export const metadata: Metadata = {
       "Manufacturer of reliable textile processing machines and customized industrial machinery in Erode, Tamil Nadu.",
     images: [
       {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
+        width: 512,
+        height: 512,
         alt: `${siteConfig.name} textile machinery manufacturer`,
       },
     ],
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     description:
       siteConfig.description ||
       "Reliable textile machinery manufacturing and customized industrial solutions.",
-    images: ["/images/og-image.jpg"],
+    images: ["https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png"],
   },
 
   robots: {
@@ -168,7 +168,7 @@ export const metadata: Metadata = {
 
   verification: {
     // Add the verification code from Google Search Console.
-    google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE",
+    google: "kmVqn_YStuVXKVJubA8gxwQo4OSunHofNYKxShen5TQ",
   },
 
   other: {
@@ -186,26 +186,36 @@ export const viewport: Viewport = {
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
+  "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
+
   name: siteConfig.name,
   url: SITE_URL,
-  logo: `${SITE_URL}/images/logo.png`,
-  image: `${SITE_URL}/images/og-image.jpg`,
+
+  logo:
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
+
+  image:
+    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
+
   description:
     siteConfig.description ||
     "SVN Enterprises manufactures textile processing machinery and customized industrial equipment.",
+
   foundingDate: "2012",
+
   address: {
     "@type": "PostalAddress",
     addressLocality: "Erode",
     addressRegion: "Tamil Nadu",
     addressCountry: "IN",
   },
+
   areaServed: {
     "@type": "Country",
     name: "India",
   },
+
   knowsAbout: [
     "Textile Machinery",
     "Fabric Inspection Machines",

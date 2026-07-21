@@ -3,13 +3,12 @@ import type { Update, ProcessStep } from "@/types";
 export const siteConfig = {
   name: "SVN Enterprises",
   url: "https://www.svnenterprises.co.in",
+  logoUrl: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
+
   tagline: "Reliable Industrial & Textile Machinery Manufacturer Since 2012",
+
   description:
     "SVN Enterprises is a leading manufacturer of textile machinery, sewing machines, washer extractors and fabric inspection systems based in Erode, Tamil Nadu.",
-  logoUrl:
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780046262/SVN_Logo_oof9dn.png",
-  faviconUrl:
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1780046262/SVN_Logo_oof9dn.png",
   ceo: "Randhir Singh",
   established: "2012",
   gstSince: "July 2017",
@@ -17,9 +16,11 @@ export const siteConfig = {
   legalStatus: "Partnership Firm",
   natureOfBusiness: "Manufacturer",
   additionalBusiness: ["Retail Business", "Factory / Manufacturing"],
+
   address: {
     line1: "SVN Enterprises",
-    line2: " Subramaniam nagar, Vivekanandar Salai,Veerappampalayam,Thindal",
+    line2:
+      "Subramaniam Nagar, Vivekanandar Salai, Veerappampalayam, Thindal",
     city: "Erode",
     state: "Tamil Nadu",
     country: "India",
@@ -29,6 +30,7 @@ export const siteConfig = {
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "9344035935",
   email: "svnindustries2012@gmail.com ",
   workingHours: "Mon – Sat: 9:00 AM – 7:00 PM",
+
   socials: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
@@ -41,7 +43,11 @@ export const stats = [
   { value: 14, suffix: "+", label: "Years of Experience" },
   { value: 1200, suffix: "+", label: "Machines Delivered" },
   { value: 250, suffix: "+", label: "Valuable Customers" },
-  { value: "Pan India & Asian Countries", suffix: "", label: "Cities Served" },
+  {
+    value: "Pan India & Asian Countries",
+    suffix: "",
+    label: "Cities Served",
+  },
 ];
 
 export const whyChooseUs = [
@@ -133,9 +139,9 @@ export const timeline = [
     description:
       "Formally GST-registered in July 2017, expanding our reach across multiple states.",
   },
-   {
+  {
     year: "2018",
-    title: "Exports Global Country ",
+    title: "Exports Global Country",
     description:
       "Began exporting our textile machinery to international markets, including several Asian countries.",
   },
@@ -145,7 +151,6 @@ export const timeline = [
     description:
       "Launched our flagship Inspection Cum Rolling Machine series with strong market response.",
   },
- 
   {
     year: "2025",
     title: "250+ Clients & Growing",
