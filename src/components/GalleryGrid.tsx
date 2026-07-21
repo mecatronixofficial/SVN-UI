@@ -19,7 +19,8 @@ type GalleryGridProps = {
 
 export default function GalleryGrid({
   filterDefault = "All",
-}: GalleryGridProps) {
+}: GalleryGridProps) 
+{
   const [filter, setFilter] = useState<string>(filterDefault);
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [failedMedia, setFailedMedia] = useState<Record<string, boolean>>({});
@@ -303,5 +304,5 @@ export default function GalleryGrid({
         )}
       </AnimatePresence>
     </div>
-  );
+  )
 }
