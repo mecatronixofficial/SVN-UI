@@ -1,0 +1,17 @@
+{
+  "name": "SVN Enterprises",
+  "short_name": "SVN Enterprises",
+  "description": "Textile machinery manufacturer in Erode, Tamil Nadu.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

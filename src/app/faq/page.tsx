@@ -13,11 +13,39 @@ export const metadata: Metadata = {
   title: "FAQ — Learn More From SVN Enterprises",
   description:
     "Frequently asked questions about SVN Enterprises, our textile and industrial machinery, manufacturing capability, customization, after-sales support and more.",
+  keywords: [
+    "textile machinery manufacturer FAQ",
+    "custom textile machinery India",
+    "fabric inspection machine quotation",
+    "textile machinery installation service",
+    "textile machinery after sales support India",
+    "textile processing machine supplier Erode",
+  ],
+  alternates: {
+    canonical: "https://www.svnenterprises.co.in/faq",
+  },
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer.trim(),
+    },
+  })),
 };
 
 export default function FAQPage() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageHero
         title="Learn More From FAQ"
         subtitle="Answers to the most common questions about our machinery, manufacturing process, customization options and ongoing support."

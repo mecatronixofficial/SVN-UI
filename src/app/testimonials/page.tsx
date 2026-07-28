@@ -7,9 +7,18 @@ import CTASection from "@/components/CTASection";
 import { testimonials } from "@/data/testimonials";
 
 export const metadata: Metadata = {
-  title: "Testimonials",
+  title: "Textile Machinery Customer Reviews | SVN Enterprises",
   description:
-    "Real feedback from textile mills, garment units, and laundry operators who use SVN Enterprises machinery.",
+    "Read customer feedback from textile mills, garment units and laundry operators using SVN Enterprises textile and industrial machinery across India.",
+  keywords: [
+    "textile machinery customer reviews",
+    "textile machinery manufacturer India reviews",
+    "fabric processing machinery supplier reviews",
+    "textile machinery Erode",
+  ],
+  alternates: {
+    canonical: "https://www.svnenterprises.co.in/testimonials",
+  },
 };
 
 export default function TestimonialsPage() {

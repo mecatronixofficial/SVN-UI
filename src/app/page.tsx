@@ -65,6 +65,12 @@ export const metadata: Metadata = {
     "customized textile machinery",
     "textile machine supplier",
     "textile engineering company",
+    "textile machinery supplier India",
+    "custom textile machinery manufacturer India",
+    "industrial textile equipment manufacturer",
+    "fabric processing machine supplier",
+    "textile machinery quotation",
+    "textile machinery manufacturer near Erode",
   ],
 
   alternates: {
@@ -317,21 +323,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Structured data for Google */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationSchema),
-        }}
-      />
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(websiteSchema),
-        }}
-      />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

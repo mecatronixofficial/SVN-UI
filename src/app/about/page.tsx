@@ -17,9 +17,20 @@ import Image from "next/image";
 import { siteConfig, timeline } from "@/data/site";
 
 export const metadata = {
-  title: "About Us",
+  title: "About Textile Machinery Manufacturer in Erode | SVN Enterprises",
   description:
-    "Learn about SVN Enterprises, a trusted textile machinery manufacturer with years of engineering excellence.",
+    "Learn about SVN Enterprises, an Erode-based manufacturer of textile processing, fabric inspection, rolling, batching and customised industrial machinery for mills across India.",
+  keywords: [
+    "textile machinery manufacturer Erode",
+    "textile machinery manufacturer Tamil Nadu",
+    "textile machinery manufacturer India",
+    "custom textile machinery manufacturer",
+    "textile processing machinery supplier",
+    "industrial machinery manufacturer Erode",
+  ],
+  alternates: {
+    canonical: "https://www.svnenterprises.co.in/about",
+  },
 };
 
 export default function AboutPage() {
