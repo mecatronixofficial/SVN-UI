@@ -25,7 +25,7 @@ export default function Footer() {
           <Link href="/" className="flex items-center gap-3">
             <span className="grid h-11 w-11 place-items-center overflow-hidden rounded-md bg-white shadow-soft group-hover:bg-brand-800 transition-colors">
                           <Image
-                            src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1780046262/SVN_Logo_oof9dn.png"
+                            src="/images/logo.png"
                             alt="SVN Logo"
                             width={44}
                             height={44}

@@ -10,6 +10,12 @@ import { siteConfig } from "@/data/site";
 
 const SITE_URL = "https://www.svnenterprises.co.in";
 
+const LOGO_URL = `${SITE_URL}/images/logo.png`;
+
+/* =========================
+   FONTS
+========================= */
+
 const sans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -22,29 +28,111 @@ const display = Playfair_Display({
   display: "swap",
 });
 
-const organizationJsonLd = {
+/* =========================
+   ORGANIZATION SCHEMA
+========================= */
+
+const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness", "Manufacturer"],
+  "@id": `${SITE_URL}/#organization`,
+
   name: siteConfig.name,
-  url: siteConfig.url,
-  logo: siteConfig.logoUrl,
-  description: siteConfig.description,
-  email: siteConfig.email.trim(),
-  telephone: `+91${siteConfig.phone.replace(/\D/g, "")}`,
-  foundingDate: siteConfig.established,
+  alternateName: "SVN Enterprises Erode",
+  url: SITE_URL,
+
+  logo: {
+    "@type": "ImageObject",
+    url: LOGO_URL,
+    width: 512,
+    height: 512,
+  },
+
+  image: LOGO_URL,
+
+  description:
+    siteConfig.description ||
+    "SVN Enterprises is a trusted textile machinery manufacturer in Erode, Tamil Nadu, providing fabric inspection, rolling, batching, washing and customized textile processing machines.",
+
+  foundingDate: siteConfig.established || "2012",
+
   founder: {
     "@type": "Person",
     name: siteConfig.ceo,
   },
+
+  email: siteConfig.email?.trim(),
+
+  telephone: siteConfig.phone
+    ? `+91${siteConfig.phone.replace(/\D/g, "")}`
+    : undefined,
+
+  openingHours: "Mo-Sa 09:00-19:00",
+
   address: {
     "@type": "PostalAddress",
-    streetAddress: siteConfig.address.line2.trim(),
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.state,
-    postalCode: siteConfig.address.pincode,
-    addressCountry: siteConfig.address.country,
+
+    streetAddress: siteConfig.address?.line2?.trim(),
+
+    addressLocality:
+      siteConfig.address?.city || "Erode",
+
+    addressRegion:
+      siteConfig.address?.state || "Tamil Nadu",
+
+    postalCode:
+      siteConfig.address?.pincode,
+
+    addressCountry:
+      siteConfig.address?.country || "IN",
   },
+
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+
+  knowsAbout: [
+    "Textile Machinery",
+    "Textile Processing Machinery",
+    "Fabric Inspection Machines",
+    "Fabric Rolling Machines",
+    "Gray Batching Machines",
+    "Drying Range Machines",
+    "J-Box Machines",
+    "Continuous Washing Range",
+    "Washer Extractor Machines",
+    "Customized Textile Machinery",
+    "Industrial Textile Equipment",
+  ],
 };
+
+/* =========================
+   WEBSITE SCHEMA
+========================= */
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE_URL}/#website`,
+
+  name: siteConfig.name,
+  url: SITE_URL,
+
+  description:
+    siteConfig.description ||
+    "SVN Enterprises manufactures textile processing machinery and customized industrial textile equipment in Erode, Tamil Nadu.",
+
+  publisher: {
+    "@id": `${SITE_URL}/#organization`,
+  },
+
+  inLanguage: "en-IN",
+};
+
+/* =========================
+   METADATA
+========================= */
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -70,12 +158,15 @@ export const metadata: Metadata = {
     "fabric rolling machine manufacturer",
     "gray batching machine",
     "J Box machine",
+    "J-Box machine manufacturer",
     "drying range machine",
     "continuous washing range",
     "washer extractor machine",
     "industrial textile machines",
     "custom textile machinery",
     "textile processing equipment",
+    "textile machinery manufacturer in India",
+    "textile processing machinery manufacturer",
   ],
 
   authors: [
@@ -86,49 +177,71 @@ export const metadata: Metadata = {
   ],
 
   creator: siteConfig.name,
+
   publisher: siteConfig.name,
 
   category: "Textile Machinery Manufacturing",
 
   alternates: {
-    canonical: SITE_URL,
     languages: {
       "en-IN": SITE_URL,
     },
   },
 
+  /* =========================
+     OPEN GRAPH
+  ========================= */
+
   openGraph: {
     type: "website",
+
     locale: "en_IN",
+
     url: SITE_URL,
+
     siteName: siteConfig.name,
+
     title: `${siteConfig.name} | Textile Machinery Manufacturer`,
+
     description:
       siteConfig.description ||
       "Manufacturer of reliable textile processing machines and customized industrial machinery in Erode, Tamil Nadu.",
+
     images: [
       {
-        url: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
+        url: LOGO_URL,
         width: 512,
         height: 512,
-        alt: `${siteConfig.name} textile machinery manufacturer`,
+        alt: `${siteConfig.name} - Textile Machinery Manufacturer`,
       },
     ],
   },
 
+  /* =========================
+     TWITTER / X
+  ========================= */
+
   twitter: {
     card: "summary_large_image",
+
     title: `${siteConfig.name} | Textile Machinery Manufacturer`,
+
     description:
       siteConfig.description ||
-      "Reliable textile machinery manufacturing and customized industrial solutions.",
-    images: ["https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png"],
+      "Reliable textile machinery manufacturing and customized industrial solutions in Erode, Tamil Nadu.",
+
+    images: [LOGO_URL],
   },
+
+  /* =========================
+     ROBOTS
+  ========================= */
 
   robots: {
     index: true,
     follow: true,
     nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
@@ -139,43 +252,36 @@ export const metadata: Metadata = {
     },
   },
 
-  icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-      },
-      {
-        url: "/icons/icon-192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-      {
-        url: "/icons/icon-512.png",
-        sizes: "512x512",
-        type: "image/png",
-      },
-    ],
-    apple: [
-      {
-        url: "/icons/apple-touch-icon.png",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-  },
+  // `src/app/icon.png` and `src/app/apple-icon.png` are discovered by Next.js
+  // and generate valid, crawlable icon links automatically.
+
+  /* =========================
+     WEB APP MANIFEST
+  ========================= */
 
   manifest: "/manifest.webmanifest",
 
+  /* =========================
+     GOOGLE SEARCH CONSOLE
+  ========================= */
+
   verification: {
-    // Add the verification code from Google Search Console.
     google: "kmVqn_YStuVXKVJubA8gxwQo4OSunHofNYKxShen5TQ",
   },
+
+  /* =========================
+     GEO META
+  ========================= */
 
   other: {
     "geo.region": "IN-TN",
     "geo.placename": "Erode, Tamil Nadu",
   },
 };
+
+/* =========================
+   VIEWPORT
+========================= */
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -184,62 +290,9 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${SITE_URL}/#organization`,
-
-  name: siteConfig.name,
-  url: SITE_URL,
-
-  logo:
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
-
-  image:
-    "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
-
-  description:
-    siteConfig.description ||
-    "SVN Enterprises manufactures textile processing machinery and customized industrial equipment.",
-
-  foundingDate: "2012",
-
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Erode",
-    addressRegion: "Tamil Nadu",
-    addressCountry: "IN",
-  },
-
-  areaServed: {
-    "@type": "Country",
-    name: "India",
-  },
-
-  knowsAbout: [
-    "Textile Machinery",
-    "Fabric Inspection Machines",
-    "Fabric Rolling Machines",
-    "Gray Batching Machines",
-    "Drying Range Machines",
-    "J-Box Machines",
-    "Continuous Washing Range",
-    "Customized Textile Machinery",
-  ],
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "@id": `${SITE_URL}/#website`,
-  name: siteConfig.name,
-  url: SITE_URL,
-  description: siteConfig.description,
-  publisher: {
-    "@id": `${SITE_URL}/#organization`,
-  },
-  inLanguage: "en-IN",
-};
+/* =========================
+   ROOT LAYOUT
+========================= */
 
 export default function RootLayout({
   children,
@@ -247,14 +300,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={`${sans.variable} ${display.variable}`}>
+    <html
+      lang="en-IN"
+      className={`${sans.variable} ${display.variable}`}
+    >
       <body>
+        {/* Organization Schema */}
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
           }}
         />
+
+        {/* Website Schema */}
 
         <script
           type="application/ld+json"
@@ -263,12 +323,24 @@ export default function RootLayout({
           }}
         />
 
+        {/* Navbar */}
+
         <Navbar />
 
-        <main className="min-h-screen pt-20">{children}</main>
+        {/* Main Content */}
+
+        <main className="min-h-screen pt-20">
+          {children}
+        </main>
+
+        {/* Footer */}
 
         <Footer />
+
+        {/* Floating Components */}
+
         <ScrollToTop />
+
         <FloatingActions />
       </body>
     </html>

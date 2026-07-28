@@ -75,7 +75,7 @@ export default function Navbar() {
           >
             <span className="relative h-12 w-12 flex-shrink-0">
   <Image
-    src="https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030177/kkk_qltbtp.png"
+    src="/images/logo.png"
     alt="SVN Logo"
     fill
     className="object-contain"

@@ -44,6 +44,11 @@ export const metadata: Metadata = {
     "J Box machine manufacturer",
     "textile machinery service Tamil Nadu",
     "industrial machinery manufacturer Erode",
+    "textile machinery quotation India",
+    "textile machinery supplier contact",
+    "custom textile machine enquiry",
+    "fabric inspection machine price quote",
+    "textile machinery service Erode",
   ],
 
   alternates: {
@@ -222,14 +227,6 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(contactPageSchema),
-        }}
-      />
-
-      {/* Company and contact structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
         }}
       />
 

@@ -46,8 +46,21 @@ export async function generateMetadata({
   }
 
   return {
-    title: product.name,
+    title: `${product.name} Manufacturer in India`,
     description: product.shortDescription,
+    keywords: [
+      product.name,
+      `${product.name} manufacturer`,
+      `${product.name} manufacturer India`,
+      `${product.name} supplier India`,
+      `${product.name} price quotation`,
+      product.category.trim(),
+      "textile machinery manufacturer Erode",
+      "custom textile machinery India",
+    ],
+    alternates: {
+      canonical: `${siteConfig.url}/products/${product.slug}`,
+    },
     openGraph: {
       title: `${product.name} - SVN Enterprises`,
       description: product.shortDescription,
@@ -62,9 +75,31 @@ export default async function ProductDetailPage({ params }: PageProps) {
   if (!product) notFound();
 
   const related = getRelatedProducts(slug, 3);
+  const productUrl = `${siteConfig.url}/products/${product.slug}`;
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${productUrl}#product`,
+    name: product.name.trim(),
+    description: product.description,
+    category: product.category.trim(),
+    url: productUrl,
+    brand: {
+      "@type": "Brand",
+      name: siteConfig.name,
+    },
+    manufacturer: {
+      "@id": `${siteConfig.url}/#organization`,
+    },
+    image: product.image ? [product.image] : undefined,
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
       {/* Hero Without Image */}
       <section className="relative overflow-hidden bg-brand-950 py-24 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_35%)]" />

@@ -3,7 +3,9 @@ import type { Update, ProcessStep } from "@/types";
 export const siteConfig = {
   name: "SVN Enterprises",
   url: "https://www.svnenterprises.co.in",
-  logoUrl: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784030005/logo_svn_dcmq5b.png",
+  // Keep the logo on the site domain so search engines can crawl the same
+  // image used by the site, structured data, and favicon.
+  logoUrl: "https://www.svnenterprises.co.in/images/logo.png",
 
   tagline: "Reliable Industrial & Textile Machinery Manufacturer Since 2012",
 
@@ -32,10 +34,10 @@ export const siteConfig = {
   workingHours: "Mon – Sat: 9:00 AM – 7:00 PM",
 
   socials: {
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com",
-    linkedin: "https://linkedin.com",
-    youtube: "https://youtube.com",
+    facebook: "",
+    instagram: "",
+    linkedin: "",
+    youtube: "",
   },
 };
 

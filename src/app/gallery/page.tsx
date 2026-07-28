@@ -4,9 +4,19 @@ import GalleryGrid from "@/components/GalleryGrid";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Gallery | SVN Enterprises",
+  title: "Textile Machinery Factory & Machine Gallery | SVN Enterprises",
   description:
-    "View photos and videos of our factory, machinery, manufacturing process, and team at SVN Enterprises, Erode.",
+    "Explore SVN Enterprises' textile machinery factory, manufacturing process, fabric processing machines and installation work in Erode, Tamil Nadu.",
+  keywords: [
+    "textile machinery factory Erode",
+    "textile machine manufacturer gallery",
+    "fabric inspection machine manufacturer India",
+    "textile processing machinery India",
+    "industrial machinery manufacturer Tamil Nadu",
+  ],
+  alternates: {
+    canonical: "https://www.svnenterprises.co.in/gallery",
+  },
 };
 
 export default function GalleryPage() {
