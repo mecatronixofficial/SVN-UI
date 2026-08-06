@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "SVN Enterprises is a trusted textile machinery manufacturer in Erode, Tamil Nadu. We manufacture fabric inspection machines, fabric rolling machines, gray batching machines, J-Box machines, drying ranges, continuous washing ranges and customized textile processing machinery.",
+    "SVN Enterprises is a trusted textile machinery manufacturer in Erode, Tamil Nadu. We manufacture fabric inspection machines, book folding machines, batching machines, fabric rolling machines, stretch wrapping machines, electronic jigger machines, J-Box machines and customized textile processing machinery.",
 
   keywords: [
     "SVN Enterprises",
@@ -56,10 +56,12 @@ export const metadata: Metadata = {
     "textile machine manufacturer in India",
     "fabric inspection machine manufacturer",
     "fabric rolling machine manufacturer",
-    "gray batching machine manufacturer",
+    "batching machine manufacturer",
+    "book folding machine manufacturer",
+    "stretch wrapping machine manufacturer",
+    "electronic jigger machine manufacturer",
     "J Box machine manufacturer",
-    "drying range machine manufacturer",
-    "continuous washing range manufacturer",
+    "rope opener and slit opener manufacturer",
     "textile processing machinery",
     "industrial textile machinery",
     "customized textile machinery",
@@ -87,7 +89,7 @@ export const metadata: Metadata = {
       "Textile Machinery Manufacturer in Erode | SVN Enterprises",
 
     description:
-      "Manufacturer of fabric inspection, rolling, batching, washing, drying and customized textile processing machinery in Erode, Tamil Nadu.",
+      "Manufacturer of fabric inspection, folding, batching, rolling, wrapping, dyeing and customized textile processing machinery in Erode, Tamil Nadu.",
 
     images: [
       {
@@ -203,11 +205,12 @@ const organizationSchema = {
   knowsAbout: [
     "Textile machinery manufacturing",
     "Fabric inspection machines",
+    "Book folding machines",
+    "Batching machines",
     "Fabric rolling machines",
-    "Gray batching machines",
+    "Stretch wrapping machines",
+    "Electronic jigger machines",
     "J-Box machines",
-    "Drying range machines",
-    "Continuous washing ranges",
     "Textile processing machinery",
     "Customized industrial machinery",
   ],
@@ -283,7 +286,7 @@ const homePageSchema = {
     "Textile Machinery Manufacturer in Erode | SVN Enterprises",
 
   description:
-    "SVN Enterprises manufactures reliable textile processing machines including fabric inspection, rolling, batching, washing and drying machines.",
+    "SVN Enterprises manufactures reliable textile processing machines including fabric inspection, folding, batching, rolling and wrapping machines.",
 
   isPartOf: {
     "@id": `${SITE_URL}/#website`,

@@ -10,7 +10,7 @@ export const siteConfig = {
   tagline: "Reliable Industrial & Textile Machinery Manufacturer Since 2012",
 
   description:
-    "SVN Enterprises is a leading manufacturer of textile machinery, sewing machines, washer extractors and fabric inspection systems based in Erode, Tamil Nadu.",
+    "SVN Enterprises is a leading manufacturer of textile machinery based in Erode, Tamil Nadu, including fabric inspection, folding, batching, rolling, wrapping, dyeing and material handling machines.",
   ceo: "Randhir Singh",
   established: "2012",
   gstSince: "July 2017",
@@ -30,7 +30,7 @@ export const siteConfig = {
   },
   phone: "9994364935",
   whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "9344035935",
-  email: "svnindustries2012@gmail.com ",
+  email: "svnindustries2012@gmail.com",
   workingHours: "Mon – Sat: 9:00 AM – 7:00 PM",
 
   socials: {

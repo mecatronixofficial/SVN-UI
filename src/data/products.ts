@@ -240,8 +240,8 @@ export const products: Product[] = [
   {
     machineNumber: "06",
     slug: "batching-machine",
-    name: " Batching Machine",
-    category: " Batching Machines",
+    name: "Batching Machine",
+    category: "Batching Machines",
     shortDescription:
       "Textile batching machine for uniform fabric batching with controlled tension.",
     description:

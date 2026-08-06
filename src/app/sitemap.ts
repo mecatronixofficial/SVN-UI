@@ -15,14 +15,18 @@ const staticRoutes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const lastModified = new Date();
+
   const pages: SitemapEntry[] = staticRoutes.map((route) => ({
     url: `${siteConfig.url}${route}`,
+    lastModified,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.7,
   }));
 
   const productPages: SitemapEntry[] = products.map((product) => ({
     url: `${siteConfig.url}/products/${product.slug}`,
+    lastModified,
     changeFrequency: "monthly",
     priority: 0.8,
   }));
