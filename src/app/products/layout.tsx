@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Textile Machinery Manufacturer & Supplier in India",
   description:
-    "Browse fabric inspection, rolling, batching, folding, washing, drying, wrapping and customised textile processing machinery from SVN Enterprises, Erode.",
+    "Browse fabric inspection, folding, batching, rolling, wrapping, dyeing and customised textile processing machinery from SVN Enterprises, Erode.",
   keywords: [
     "textile machinery manufacturer India",
     "textile machinery supplier India",

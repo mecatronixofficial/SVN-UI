@@ -4,7 +4,7 @@ export const faqs: FAQItem[] = [
   {
     question: "What products does SVN Enterprises manufacture?",
     answer:
-     " We manufacture a complete range of textile machinery, including fabric inspection machines, fabric rolling machines, stitching machines, conveyor belts, grey batching machines, rotating machines, desizing washing tanks, brushing machines, beating machines, continuous washing machines, drying ranges, padding machines, A-frame trolleys, box trolleys, and other textile processing equipment etc...",
+      "We manufacture a complete range of textile machinery, including fabric inspection machines, rope opener and slit openers, book folding machines, stretch wrapping machines, batching machines, fabric rolling machines, electronic jigger machines, cutting machines, brushing machines, J-Box machines, open width tumbler swing machines, conveyor belts, rotating stations, A-frame trolleys, box trolleys, and other textile processing equipment.",
   },
   {
     question: "Do you provide customized machinery?",

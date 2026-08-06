@@ -62,8 +62,21 @@ export async function generateMetadata({
       canonical: `${siteConfig.url}/products/${product.slug}`,
     },
     openGraph: {
+      type: "website",
+      locale: "en_IN",
+      url: `${siteConfig.url}/products/${product.slug}`,
+      siteName: siteConfig.name,
       title: `${product.name} - SVN Enterprises`,
       description: product.shortDescription,
+      images: product.image
+        ? [{ url: product.image, alt: product.name }]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} - SVN Enterprises`,
+      description: product.shortDescription,
+      images: product.image ? [product.image] : undefined,
     },
   };
 }

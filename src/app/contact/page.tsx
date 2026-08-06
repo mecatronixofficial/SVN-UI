@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     "custom textile machinery enquiry",
     "fabric inspection machine enquiry",
     "fabric rolling machine manufacturer",
-    "gray batching machine quotation",
+    "batching machine quotation",
     "J Box machine manufacturer",
     "textile machinery service Tamil Nadu",
     "industrial machinery manufacturer Erode",

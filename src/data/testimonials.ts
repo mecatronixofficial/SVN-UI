@@ -27,7 +27,7 @@ export const testimonials: Testimonial[] = [
     role: "Owner",
     company: "Vetri Garment Exports",
     message:
-      "Their industrial sewing machines have been running on our floor for years with minimal downtime. Honest pricing and reliable people.",
+      "Their machines have been running on our floor for years with minimal downtime. Honest pricing and reliable people.",
     rating: 5,
     location: "Erode, Tamil Nadu",
   },
@@ -37,7 +37,7 @@ export const testimonials: Testimonial[] = [
     role: "Plant Head",
     company: "Karur Home Textiles",
     message:
-      "The washer extractor we sourced from SVN handles our daily 2-tonne load effortlessly. Energy bills have noticeably dropped.",
+      "The machinery we sourced from SVN handles our daily 2-tonne load effortlessly. Energy bills have noticeably dropped.",
     rating: 4,
     location: "Karur, Tamil Nadu",
   },
