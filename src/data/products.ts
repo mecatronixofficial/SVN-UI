@@ -95,13 +95,13 @@ export const products: Product[] = [
 
   {
     machineNumber: "03",
-    slug: "folding-machine",
-    name: "Folding Machine",
-    category: "Folding Machines",
+    slug: "book-folding-machine",
+    name: "Book Folding Machine",
+    category: "Book Folding Machine",
     shortDescription:
-      "Fabric folding machine for neat, uniform and production-ready fabric folding.",
+      "Fabric folding machine for net, uniform and production-ready fabric folding.",
     description:
-      "Folding Machine is used to fold fabric accurately and uniformly after inspection, finishing or rolling operations. It improves packing quality, reduces manual effort and gives a neat presentation for dispatch.",
+      "Book Folding Machine is used to fold fabric accurately and uniformly after inspection, finishing or rolling operations. It improves packing quality, reduces manual effort and gives a neat presentation for dispatch.",
     video:
       "https://res.cloudinary.com/ddpfxvydm/video/upload/v1784017462/Folding_machine_neibk6.mp4",
 
@@ -293,7 +293,7 @@ export const products: Product[] = [
     description:
       "Rolling Machine is used to roll fabric smoothly after inspection, finishing or processing. It provides uniform roll formation, accurate length measurement and controlled fabric tension.",
     video:
-      "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766922/Rolling_Machine-1_hrsucy.mp4",
+      "https://res.cloudinary.com/ddpfxvydm/video/upload/v1786005389/Roling_Machine_hwxndr.mp4",
     features: [
       "Uniform fabric rolling",
       "Variable speed drive",
@@ -332,13 +332,13 @@ export const products: Product[] = [
 
   {
     machineNumber: "08",
-    slug: "conveyor-belt",
-    name: "Conveyor Belt",
+    slug: "inspection-with-conveyor-belt",
+    name: "Inspection with Conveyor Belt",
     category: "Material Handling",
     shortDescription:
       "Industrial conveyor belt system for smooth material movement in textile production lines.",
     description:
-      "Conveyor Belt is used for transferring fabric rolls, packed goods or materials between different production stages. It improves workflow, reduces manual movement and supports continuous operation.",
+      "Inspection with Conveyor Belt is used for transferring fabric rolls, packed goods or materials between different production stages. It improves workflow, reduces manual movement and supports continuous operation.",
     video:
       "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781767035/Conveyer_Belt_codz8j.mp4",
     features: [
@@ -380,15 +380,15 @@ export const products: Product[] = [
 
   {
     machineNumber: "09",
-    slug: "jigger",
-    name: "Jigger",
+    slug: "electronic-jigger-machine",
+    name: "Electronic Jigger Machine",
     category: "Dyeing Machines",
     shortDescription:
       "Textile dyeing jigger machine for controlled fabric dyeing and wet processing.",
     description:
-      "Jigger machine is used in textile dyeing and wet processing for uniform dye application on woven fabrics. It helps maintain controlled fabric movement, proper chemical contact and consistent shade results.",
+      "Electronic Jigger Machine is used in textile dyeing and wet processing for uniform dye application on woven fabrics. It helps maintain controlled fabric movement, proper chemical contact and consistent shade results.",
     video:
-      "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766963/Fabric_Machine_eljdoq.mp4",
+      "https://res.cloudinary.com/ddpfxvydm/video/upload/v1786005398/Jigar_Machine_ryyqdb.mp4",
     features: [
       "Uniform fabric dyeing",
       "Controlled fabric movement",
@@ -481,7 +481,7 @@ export const products: Product[] = [
       "A-frame trolley for safe fabric roll, batch and material movement in textile units.",
     description:
       "A-Frame Trolley is used for safe handling and movement of fabric rolls, batches and textile materials inside production areas. Its strong A-frame structure provides stability and easy movement during material transfer.",
-    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1784028888/a_frame_trolly_n2u9xi.png",
+    image: "https://res.cloudinary.com/ddpfxvydm/image/upload/v1786005348/WhatsApp_Image_2026-08-06_at_13.47.04_fgmycg.jpg",
     features: [
       "Strong A-frame structure",
       "Heavy-duty wheels",
@@ -684,62 +684,64 @@ export const products: Product[] = [
     ],
   },
   {
-    machineNumber: "15",
-    slug: "gray-batching-machine",
-    name: "Gray Batching Machine",
-    category: "Batching Machines",
-    shortDescription:
-      "Gray batching machine for uniform batching of gray fabric with proper alignment and controlled tension.",
-    description:
-      "Gray Batching Machine is used in textile processing to batch gray fabric neatly and uniformly before dyeing, washing, bleaching or further finishing operations. It helps maintain proper fabric alignment, controlled tension and smooth fabric handling during continuous production.",
+  machineNumber: "15",
+  slug: "open-width-tumbler-swing-machine",
+  name: "Open Width Tumbler Swing Machine",
+  category: "Finishing Machines",
 
-    video:
-      "https://res.cloudinary.com/ddpfxvydm/video/upload/v1781766603/Gray_Batching_Machine_qt4sil.mp4",
+  shortDescription:
+    "Open Width Tumbler Swing Machine for soft finishing, wrinkle removal, fabric relaxation, and improved fabric appearance.",
 
-    features: [
-      "Uniform gray fabric batching",
-      "Variable speed control",
-      "Fabric tension control system",
-      "Edge guiding option",
-      "Forward and reverse operation",
-      "Heavy-duty batching rollers",
-      "Operator-friendly control panel",
-    ],
+  description:
+    "Open Width Tumbler Swing Machine is designed for textile finishing processes to provide fabric relaxation, softness, wrinkle removal, and improved hand feel while maintaining the fabric in open-width form. It ensures uniform treatment with controlled temperature and airflow, making it suitable for woven, knitted, and processed fabrics before final inspection and packing.",
 
-    applications: [
-      "Gray fabric batching",
-      "Textile mills",
-      "Dyeing units",
-      "Processing plants",
-      "Finishing preparation",
-      "Fabric inspection departments",
-    ],
+  video:
+    "https://res.cloudinary.com/ddpfxvydm/video/upload/v1786005902/open_with_tm_ry93n0.mp4",
 
-    specifications: [
-      { label: "Fabric Type", value: "Gray woven / knitted fabric" },
-      { label: "Working Width", value: "Customizable as per requirement" },
-      { label: "Operation", value: "Forward / reverse batching" },
-      { label: "Drive", value: "Variable speed AC drive" },
-      { label: "Power Supply", value: "415V / 3 Phase" },
-      { label: "Structure", value: "Heavy-duty MS fabricated frame" },
-    ],
+  features: [
+    "Open-width fabric processing",
+    "Uniform tumbling action",
+    "Controlled temperature system",
+    "Adjustable fabric speed",
+    "Energy-efficient hot air circulation",
+    "Heavy-duty drive mechanism",
+    "User-friendly control panel",
+  ],
 
-    benefits: [
-      "Neat and uniform batching",
-      "Reduces fabric wrinkles",
-      "Improves fabric alignment",
-      "Reduces manual handling",
-      "Suitable for continuous production",
-    ],
+  applications: [
+    "Textile finishing units",
+    "Knitted fabric processing",
+    "Woven fabric finishing",
+    "Garment fabric preparation",
+    "Fabric softening",
+    "Final finishing departments",
+  ],
 
-    faqs: [
-      {
-        question: "Is this machine suitable for gray fabric before dyeing?",
-        answer:
-          "Yes, Gray Batching Machine is suitable for batching gray fabric before dyeing, washing, bleaching and other processing operations.",
-      },
-    ],
-  },
+  specifications: [
+    { label: "Fabric Type", value: "Woven / Knitted / Processed Fabrics" },
+    { label: "Working Width", value: "Customizable as per requirement" },
+    { label: "Operation", value: "Open Width Continuous Processing" },
+    { label: "Heating System", value: "Hot Air Circulation" },
+    { label: "Power Supply", value: "415V / 3 Phase" },
+    { label: "Structure", value: "Heavy-duty MS Fabricated Frame" },
+  ],
+
+  benefits: [
+    "Improves fabric softness",
+    "Removes wrinkles effectively",
+    "Provides uniform finishing",
+    "Enhances fabric appearance",
+    "Suitable for continuous production",
+  ],
+
+  faqs: [
+    {
+      question: "What is the purpose of an Open Width Tumbler Swing Machine?",
+      answer:
+        "It is used to provide fabric relaxation, softness, wrinkle removal, and uniform finishing while processing fabrics in open-width form before final inspection or packing.",
+    },
+  ],
+},
  
 ];
 

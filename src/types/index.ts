@@ -47,7 +47,7 @@ export type GalleryItem = {
   category:
     | "Inspection Machines"
     | "Opening Machines"
-    | "Folding Machines"
+    | "Book Folding Machine"
     | "Wrapping Machines"
     | "Material Handling"
     | "Batching Machines"
