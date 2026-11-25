@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { createMetadata, pageSeo } from "@/lib/seo";
+import PageStructuredData from "@/components/PageStructuredData";
 import { Suspense } from "react";
 import {
   FaMapMarkerAlt,
@@ -17,184 +19,7 @@ import SectionTitle from "@/components/SectionTitle";
 import ContactFormWithParams from "./ContactFormWithParams";
 import { siteConfig } from "@/data/site";
 
-const SITE_URL = "https://www.svnenterprises.co.in";
-const CONTACT_URL = `${SITE_URL}/contact`;
-const OG_IMAGE = `${SITE_URL}/images/og-image.jpg`;
-
-export const metadata: Metadata = {
-  title: {
-    absolute:
-      "Contact SVN Enterprises | Textile Machinery Manufacturer in Erode",
-  },
-
-  description:
-    "Contact SVN Enterprises in Erode, Tamil Nadu for textile machinery quotations, customized machines, installation, service and industrial machinery support. Call, email or WhatsApp our team.",
-
-  keywords: [
-    "Contact SVN Enterprises",
-    "SVN Enterprises contact number",
-    "SVN Enterprises Erode",
-    "textile machinery manufacturer contact",
-    "textile machinery manufacturer in Erode",
-    "textile machinery quotation",
-    "custom textile machinery enquiry",
-    "fabric inspection machine enquiry",
-    "fabric rolling machine manufacturer",
-    "batching machine quotation",
-    "J Box machine manufacturer",
-    "textile machinery service Tamil Nadu",
-    "industrial machinery manufacturer Erode",
-    "textile machinery quotation India",
-    "textile machinery supplier contact",
-    "custom textile machine enquiry",
-    "fabric inspection machine price quote",
-    "textile machinery service Erode",
-  ],
-
-  alternates: {
-    canonical: CONTACT_URL,
-  },
-
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    url: CONTACT_URL,
-    siteName: siteConfig.name,
-    title:
-      "Contact SVN Enterprises | Textile Machinery Manufacturer",
-    description:
-      "Contact SVN Enterprises for textile machinery quotations, customized industrial machinery, installation, service and support in Erode, Tamil Nadu.",
-    images: [
-      {
-        url: OG_IMAGE,
-        secureUrl: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: `Contact ${siteConfig.name} textile machinery manufacturer`,
-        type: "image/jpeg",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title:
-      "Contact SVN Enterprises | Textile Machinery Manufacturer",
-    description:
-      "Call, email or WhatsApp SVN Enterprises for textile machinery quotations, custom machine requirements and industrial support.",
-    images: [OG_IMAGE],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-};
-
-const contactPageSchema = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "@id": `${CONTACT_URL}/#webpage`,
-  url: CONTACT_URL,
-  name: "Contact SVN Enterprises",
-  description:
-    "Contact SVN Enterprises for textile machinery quotations, customized machinery, installation, maintenance and technical support.",
-  isPartOf: {
-    "@id": `${SITE_URL}/#website`,
-  },
-  about: {
-    "@id": `${SITE_URL}/#organization`,
-  },
-  inLanguage: "en-IN",
-};
-
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Organization", "Manufacturer"],
-  "@id": `${SITE_URL}/#organization`,
-  name: siteConfig.name,
-  url: SITE_URL,
-  logo: `${SITE_URL}/images/logo.png`,
-  image: OG_IMAGE,
-  description:
-    siteConfig.description ||
-    "SVN Enterprises is a textile machinery manufacturer in Erode, Tamil Nadu.",
-  telephone: siteConfig.phone,
-  email: siteConfig.email,
-  foundingDate: "2012",
-
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address.line2,
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.state,
-    postalCode: siteConfig.address.pincode,
-    addressCountry: "IN",
-  },
-
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: siteConfig.phone,
-      email: siteConfig.email,
-      contactType: "sales",
-      areaServed: "IN",
-      availableLanguage: ["English", "Tamil", "Hindi"],
-    },
-    {
-      "@type": "ContactPoint",
-      telephone: siteConfig.phone,
-      contactType: "customer support",
-      areaServed: "IN",
-      availableLanguage: ["English", "Tamil", "Hindi"],
-    },
-  ],
-
-  areaServed: [
-    {
-      "@type": "State",
-      name: "Tamil Nadu",
-    },
-    {
-      "@type": "Country",
-      name: "India",
-    },
-  ],
-
-  sameAs: [
-    siteConfig.socials.facebook,
-    siteConfig.socials.instagram,
-    siteConfig.socials.linkedin,
-    siteConfig.socials.youtube,
-  ].filter(Boolean),
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: SITE_URL,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Contact",
-      item: CONTACT_URL,
-    },
-  ],
-};
+export const metadata: Metadata = createMetadata(pageSeo.contact);
 
 const socials = [
   {
@@ -222,21 +47,7 @@ const socials = [
 export default function ContactPage() {
   return (
     <main>
-      {/* Contact page structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(contactPageSchema),
-        }}
-      />
-
-      {/* Breadcrumb structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
-        }}
-      />
+      <PageStructuredData page="contact" type="ContactPage" />
 
       <PageHero
         title="Contact SVN Enterprises"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createMetadata, createPageSchema, pageSeo, serializeJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { FaQuestionCircle, FaHeadset, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 
@@ -9,42 +10,22 @@ import CTASection from "@/components/CTASection";
 import { faqs } from "@/data/faqs";
 import { siteConfig } from "@/data/site";
 
-export const metadata: Metadata = {
-  title: "FAQ — Learn More From SVN Enterprises",
-  description:
-    "Frequently asked questions about SVN Enterprises, our textile and industrial machinery, manufacturing capability, customization, after-sales support and more.",
-  keywords: [
-    "textile machinery manufacturer FAQ",
-    "custom textile machinery India",
-    "fabric inspection machine quotation",
-    "textile machinery installation service",
-    "textile machinery after sales support India",
-    "textile processing machine supplier Erode",
-  ],
-  alternates: {
-    canonical: "https://www.svnenterprises.co.in/faq",
-  },
-};
+export const metadata: Metadata = createMetadata(pageSeo.faq);
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
+const faqSchema = createPageSchema(pageSeo.faq, "FAQPage", [], {
   mainEntity: faqs.map((faq) => ({
     "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer.trim(),
-    },
+    name: faq.question.trim(),
+    acceptedAnswer: { "@type": "Answer", text: faq.answer.trim() },
   })),
-};
+});
 
 export default function FAQPage() {
   return (
     <main>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqSchema) }}
       />
       <PageHero
         title="Learn More From FAQ"

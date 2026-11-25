@@ -1,27 +1,16 @@
 import type { Metadata } from "next";
+import { createMetadata, pageSeo } from "@/lib/seo";
+import PageStructuredData from "@/components/PageStructuredData";
 import PageHero from "@/components/PageHero";
 import GalleryGrid from "@/components/GalleryGrid";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Textile Machinery Factory & Machine Gallery | SVN Enterprises",
-  description:
-    "Explore SVN Enterprises' textile machinery factory, manufacturing process, fabric processing machines and installation work in Erode, Tamil Nadu.",
-  keywords: [
-    "textile machinery factory Erode",
-    "textile machine manufacturer gallery",
-    "fabric inspection machine manufacturer India",
-    "textile processing machinery India",
-    "industrial machinery manufacturer Tamil Nadu",
-  ],
-  alternates: {
-    canonical: "https://www.svnenterprises.co.in/gallery",
-  },
-};
+export const metadata: Metadata = createMetadata(pageSeo.gallery);
 
 export default function GalleryPage() {
   return (
     <>
+      <PageStructuredData page="gallery" type="CollectionPage" />
       <PageHero
         title="Gallery"
         subtitle="A look inside our factory floor, machines in production, manufacturing process, videos, and the people who make it all happen."

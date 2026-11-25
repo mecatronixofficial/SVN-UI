@@ -1,11 +1,25 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { createPageSchema, pageSeo, serializeJsonLd, siteUrl } from "@/lib/seo";
 import { FaSearch, FaFilter } from "react-icons/fa";
 import PageHero from "@/components/PageHero";
 import ProductCard from "@/components/ProductCard";
 import CTASection from "@/components/CTASection";
 import { products, productCategories } from "@/data/products";
+
+const catalogSchema = createPageSchema(pageSeo.products, "CollectionPage", [], {
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: products.length,
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: product.name.trim(),
+      url: `${siteUrl}/products/${product.slug}`,
+    })),
+  },
+});
 
 export default function ProductsPage() {
   const [search, setSearch] = useState("");
@@ -25,6 +39,7 @@ export default function ProductsPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(catalogSchema) }} />
       <PageHero
         title="Our Products"
         subtitle="Industrial and textile machinery designed for everyday production use. Browse by category, search, or click any product for full specifications."

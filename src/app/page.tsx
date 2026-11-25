@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { createMetadata, pageSeo } from "@/lib/seo";
+import PageStructuredData from "@/components/PageStructuredData";
 import Link from "next/link";
 import moment from "moment";
 
@@ -15,6 +17,7 @@ import {
 } from "react-icons/fa";
 
 import HeroSection from "@/components/HeroSection";
+import OpeningCard from "@/components/OpeningCard";
 import SectionTitle from "@/components/SectionTitle";
 import StatsCounter from "@/components/StatsCounter";
 import ProcessTimeline from "@/components/ProcessTimeline";
@@ -30,279 +33,7 @@ import {
   siteConfig,
 } from "@/data/site";
 
-const SITE_URL = "https://www.svnenterprises.co.in";
-const OG_IMAGE = `${SITE_URL}/images/og-image.jpg`;
-const LOGO_URL = `${SITE_URL}/images/logo.png`;
-
-/* -------------------------------------------------------------------------- */
-/*                               HOME PAGE SEO                                */
-/* -------------------------------------------------------------------------- */
-
-export const metadata: Metadata = {
-  title: {
-    absolute:
-      "Textile Machinery Manufacturer in Erode | SVN Enterprises",
-  },
-
-  description:
-    "SVN Enterprises is a trusted textile machinery manufacturer in Erode, Tamil Nadu. We manufacture fabric inspection machines, book folding machines, batching machines, fabric rolling machines, stretch wrapping machines, electronic jigger machines, J-Box machines and customized textile processing machinery.",
-
-  keywords: [
-    "SVN Enterprises",
-    "SVN Enterprises Erode",
-    "textile machinery manufacturer",
-    "textile machinery manufacturer in Erode",
-    "textile machinery manufacturer in Tamil Nadu",
-    "textile machine manufacturer in India",
-    "fabric inspection machine manufacturer",
-    "fabric rolling machine manufacturer",
-    "batching machine manufacturer",
-    "book folding machine manufacturer",
-    "stretch wrapping machine manufacturer",
-    "electronic jigger machine manufacturer",
-    "J Box machine manufacturer",
-    "rope opener and slit opener manufacturer",
-    "textile processing machinery",
-    "industrial textile machinery",
-    "customized textile machinery",
-    "textile machine supplier",
-    "textile engineering company",
-    "textile machinery supplier India",
-    "custom textile machinery manufacturer India",
-    "industrial textile equipment manufacturer",
-    "fabric processing machine supplier",
-    "textile machinery quotation",
-    "textile machinery manufacturer near Erode",
-  ],
-
-  alternates: {
-    canonical: SITE_URL,
-  },
-
-  openGraph: {
-    type: "website",
-    locale: "en_IN",
-    url: SITE_URL,
-    siteName: siteConfig.name,
-
-    title:
-      "Textile Machinery Manufacturer in Erode | SVN Enterprises",
-
-    description:
-      "Manufacturer of fabric inspection, folding, batching, rolling, wrapping, dyeing and customized textile processing machinery in Erode, Tamil Nadu.",
-
-    images: [
-      {
-        url: OG_IMAGE,
-        secureUrl: OG_IMAGE,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} textile machinery manufacturing facility`,
-        type: "image/jpeg",
-      },
-    ],
-  },
-
-  twitter: {
-    card: "summary_large_image",
-
-    title:
-      "Textile Machinery Manufacturer in Erode | SVN Enterprises",
-
-    description:
-      "Trusted manufacturer of textile processing machinery and customized industrial equipment in Erode, Tamil Nadu.",
-
-    images: [OG_IMAGE],
-  },
-
-  robots: {
-    index: true,
-    follow: true,
-
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
-    },
-  },
-
-  category: "Textile Machinery Manufacturing",
-};
-
-/* -------------------------------------------------------------------------- */
-/*                            STRUCTURED DATA SEO                              */
-/* -------------------------------------------------------------------------- */
-
-const organizationSchema = {
-  "@context": "https://schema.org",
-
-  "@type": [
-    "Organization",
-    "LocalBusiness",
-    "Manufacturer",
-  ],
-
-  "@id": `${SITE_URL}/#organization`,
-
-  name: siteConfig.name,
-
-  alternateName: "SVN Enterprises Erode",
-
-  url: SITE_URL,
-
-  logo: {
-    "@type": "ImageObject",
-    url: LOGO_URL,
-    width: 512,
-    height: 512,
-  },
-
-  image: {
-    "@type": "ImageObject",
-    url: OG_IMAGE,
-    width: 1200,
-    height: 630,
-  },
-
-  description:
-    siteConfig.description ||
-    "SVN Enterprises is a textile machinery manufacturer in Erode, Tamil Nadu, providing reliable textile processing machines and customized industrial equipment.",
-
-  foundingDate: "2012",
-
-  founder: {
-    "@type": "Person",
-    name: siteConfig.ceo,
-  },
-
-  telephone: siteConfig.phone,
-
-  email: siteConfig.email,
-
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address.line2,
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.state,
-    postalCode: siteConfig.address.pincode,
-    addressCountry: "IN",
-  },
-
-  areaServed: [
-    {
-      "@type": "State",
-      name: "Tamil Nadu",
-    },
-    {
-      "@type": "Country",
-      name: "India",
-    },
-  ],
-
-  knowsAbout: [
-    "Textile machinery manufacturing",
-    "Fabric inspection machines",
-    "Book folding machines",
-    "Batching machines",
-    "Fabric rolling machines",
-    "Stretch wrapping machines",
-    "Electronic jigger machines",
-    "J-Box machines",
-    "Textile processing machinery",
-    "Customized industrial machinery",
-  ],
-
-  makesOffer: [
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Textile Machinery Manufacturing",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Customized Textile Machine Manufacturing",
-      },
-    },
-    {
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: "Textile Machinery Installation and Support",
-      },
-    },
-  ],
-
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: siteConfig.phone,
-    email: siteConfig.email,
-    contactType: "sales",
-    areaServed: "IN",
-    availableLanguage: ["English", "Tamil", "Hindi"],
-  },
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-
-  "@type": "WebSite",
-
-  "@id": `${SITE_URL}/#website`,
-
-  url: SITE_URL,
-
-  name: siteConfig.name,
-
-  alternateName: `${siteConfig.name} Textile Machinery`,
-
-  description:
-    siteConfig.description ||
-    "Official website of SVN Enterprises, a textile machinery manufacturer in Erode, Tamil Nadu.",
-
-  publisher: {
-    "@id": `${SITE_URL}/#organization`,
-  },
-
-  inLanguage: "en-IN",
-};
-
-const homePageSchema = {
-  "@context": "https://schema.org",
-
-  "@type": "WebPage",
-
-  "@id": `${SITE_URL}/#webpage`,
-
-  url: SITE_URL,
-
-  name:
-    "Textile Machinery Manufacturer in Erode | SVN Enterprises",
-
-  description:
-    "SVN Enterprises manufactures reliable textile processing machines including fabric inspection, folding, batching, rolling and wrapping machines.",
-
-  isPartOf: {
-    "@id": `${SITE_URL}/#website`,
-  },
-
-  about: {
-    "@id": `${SITE_URL}/#organization`,
-  },
-
-  primaryImageOfPage: {
-    "@type": "ImageObject",
-    url: OG_IMAGE,
-  },
-
-  inLanguage: "en-IN",
-};
+export const metadata: Metadata = createMetadata(pageSeo.home);
 
 /* -------------------------------------------------------------------------- */
 /*                                  ICON MAP                                  */
@@ -326,12 +57,9 @@ export default function Home() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(homePageSchema),
-        }}
-      />
+      <PageStructuredData page="home" />
+
+      <OpeningCard />
 
       {/* Hero Section */}
       <HeroSection />

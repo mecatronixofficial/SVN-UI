@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createMetadata, createPageSchema, pageSeo, serializeJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -40,45 +41,24 @@ export async function generateMetadata({
   const product = getProductBySlug(slug);
 
   if (!product) {
-    return {
-      title: "Product Not Found",
-    };
+    return { title: { absolute: "Product Not Found | SVN Enterprises" }, robots: { index: false, follow: true } };
   }
 
-  return {
-    title: `${product.name} Manufacturer in India`,
-    description: product.shortDescription,
+  return createMetadata({
+    path: `/products/${product.slug}`,
+    title: product.name.length > 30 ? product.name : `${product.name} Manufacturer`,
+    description: `${product.shortDescription.trim()} Manufactured in Erode, Tamil Nadu by SVN Enterprises.`,
     keywords: [
-      product.name,
+      product.name.trim(),
       `${product.name} manufacturer`,
+      `${product.name} manufacturer Erode`,
+      `${product.name} supplier Tamil Nadu`,
       `${product.name} manufacturer India`,
-      `${product.name} supplier India`,
+      `${product.name} specifications`,
       `${product.name} price quotation`,
       product.category.trim(),
-      "textile machinery manufacturer Erode",
-      "custom textile machinery India",
     ],
-    alternates: {
-      canonical: `${siteConfig.url}/products/${product.slug}`,
-    },
-    openGraph: {
-      type: "website",
-      locale: "en_IN",
-      url: `${siteConfig.url}/products/${product.slug}`,
-      siteName: siteConfig.name,
-      title: `${product.name} - SVN Enterprises`,
-      description: product.shortDescription,
-      images: product.image
-        ? [{ url: product.image, alt: product.name }]
-        : undefined,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${product.name} - SVN Enterprises`,
-      description: product.shortDescription,
-      images: product.image ? [product.image] : undefined,
-    },
-  };
+  }, product.image ? { url: product.image.trim(), alt: product.name.trim() } : undefined);
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
@@ -104,14 +84,37 @@ export default async function ProductDetailPage({ params }: PageProps) {
     manufacturer: {
       "@id": `${siteConfig.url}/#organization`,
     },
-    image: product.image ? [product.image] : undefined,
+    image: product.image ? [product.image.trim()] : undefined,
+    mainEntityOfPage: { "@id": `${productUrl}#webpage` },
+    additionalProperty: product.specifications.map((specification) => ({
+      "@type": "PropertyValue",
+      name: specification.label,
+      value: specification.value,
+    })),
+  };
+
+  const pageSchema = createPageSchema({
+    path: `/products/${product.slug}`,
+    label: product.name.trim(),
+    title: product.name.trim(),
+    description: product.shortDescription.trim(),
+  }, "ItemPage", [pageSeo.products], {
+    mainEntity: { "@id": `${productUrl}#product` },
+    ...(product.image ? { primaryImageOfPage: { "@type": "ImageObject", url: product.image.trim() } } : {}),
+  });
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...pageSchema["@graph"],
+      productSchema,
+    ],
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }}
       />
       {/* Hero Without Image */}
       <section className="relative overflow-hidden bg-brand-950 py-24 text-white">

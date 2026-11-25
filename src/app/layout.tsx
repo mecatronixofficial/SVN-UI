@@ -7,8 +7,9 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingActions from "@/components/FloatingActions";
 import { siteConfig } from "@/data/site";
+import { createMetadata, pageSeo, serializeJsonLd, siteUrl, socialImage } from "@/lib/seo";
 
-const SITE_URL = "https://www.svnenterprises.co.in";
+const SITE_URL = siteUrl;
 
 const LOGO_URL = `${SITE_URL}/images/logo.png`;
 
@@ -34,7 +35,7 @@ const display = Playfair_Display({
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness", "Manufacturer"],
+  "@type": ["Organization", "LocalBusiness"],
   "@id": `${SITE_URL}/#organization`,
 
   name: siteConfig.name,
@@ -44,22 +45,17 @@ const organizationSchema = {
   logo: {
     "@type": "ImageObject",
     url: LOGO_URL,
-    width: 512,
-    height: 512,
+    width: 1024,
+    height: 1024,
   },
 
-  image: LOGO_URL,
+  image: socialImage.url,
 
   description:
     siteConfig.description ||
     "SVN Enterprises is a trusted textile machinery manufacturer in Erode, Tamil Nadu, providing fabric inspection, rolling, batching, washing and customized textile processing machines.",
 
   foundingDate: siteConfig.established || "2012",
-
-  founder: {
-    "@type": "Person",
-    name: siteConfig.ceo,
-  },
 
   email: siteConfig.email?.trim(),
 
@@ -68,6 +64,16 @@ const organizationSchema = {
     : undefined,
 
   openingHours: "Mo-Sa 09:00-19:00",
+
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: `+91${siteConfig.phone.replace(/\D/g, "")}`,
+    email: siteConfig.email,
+    contactType: "sales",
+    areaServed: "IN",
+  },
+
+  sameAs: Object.values(siteConfig.socials).filter(Boolean),
 
   address: {
     "@type": "PostalAddress",
@@ -83,8 +89,7 @@ const organizationSchema = {
     postalCode:
       siteConfig.address?.pincode,
 
-    addressCountry:
-      siteConfig.address?.country || "IN",
+    addressCountry: "IN",
   },
 
   areaServed: {
@@ -139,150 +144,27 @@ const websiteSchema = {
 ========================= */
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-
+  ...createMetadata(pageSeo.home),
+  metadataBase: new URL(siteUrl),
   applicationName: siteConfig.name,
-
-  title: {
-    default: `${siteConfig.name} | Textile Machinery Manufacturer`,
-    template: `%s | ${siteConfig.name}`,
-  },
-
-  description:
-    siteConfig.description ||
-    "SVN Enterprises is a trusted textile machinery manufacturer in Erode, Tamil Nadu, providing fabric inspection, folding, batching, rolling, wrapping, dyeing and customized textile processing machines.",
-
-  keywords: [
-    "SVN Enterprises",
-    "SVN Enterprises Erode",
-    "textile machinery manufacturer",
-    "textile machine manufacturer in Erode",
-    "textile machinery manufacturer in Tamil Nadu",
-    "fabric inspection machine manufacturer",
-    "fabric rolling machine manufacturer",
-    "batching machine manufacturer",
-    "book folding machine manufacturer",
-    "stretch wrapping machine manufacturer",
-    "electronic jigger machine manufacturer",
-    "J Box machine",
-    "J-Box machine manufacturer",
-    "rope opener and slit opener manufacturer",
-    "material handling equipment manufacturer",
-    "industrial textile machines",
-    "custom textile machinery",
-    "textile processing equipment",
-    "textile machinery manufacturer in India",
-    "textile processing machinery manufacturer",
-  ],
-
-  authors: [
-    {
-      name: siteConfig.name,
-      url: SITE_URL,
-    },
-  ],
-
+  authors: [{ name: siteConfig.name, url: siteUrl }],
   creator: siteConfig.name,
-
   publisher: siteConfig.name,
-
   category: "Textile Machinery Manufacturing",
-
-  alternates: {
-    languages: {
-      "en-IN": SITE_URL,
-    },
-  },
-
-  /* =========================
-     OPEN GRAPH
-  ========================= */
-
-  openGraph: {
-    type: "website",
-
-    locale: "en_IN",
-
-    url: SITE_URL,
-
-    siteName: siteConfig.name,
-
-    title: `${siteConfig.name} | Textile Machinery Manufacturer`,
-
-    description:
-      siteConfig.description ||
-      "Manufacturer of reliable textile processing machines and customized industrial machinery in Erode, Tamil Nadu.",
-
-    images: [
-      {
-        url: LOGO_URL,
-        width: 512,
-        height: 512,
-        alt: `${siteConfig.name} - Textile Machinery Manufacturer`,
-      },
-    ],
-  },
-
-  /* =========================
-     TWITTER / X
-  ========================= */
-
-  twitter: {
-    card: "summary_large_image",
-
-    title: `${siteConfig.name} | Textile Machinery Manufacturer`,
-
-    description:
-      siteConfig.description ||
-      "Reliable textile machinery manufacturing and customized industrial solutions in Erode, Tamil Nadu.",
-
-    images: [LOGO_URL],
-  },
-
-  /* =========================
-     ROBOTS
-  ========================= */
-
   robots: {
     index: true,
     follow: true,
-    nocache: false,
-
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: false,
       "max-image-preview": "large",
       "max-snippet": -1,
       "max-video-preview": -1,
     },
   },
-
-  // `src/app/icon.png` and `src/app/apple-icon.png` are discovered by Next.js
-  // and generate valid, crawlable icon links automatically.
-
-  /* =========================
-     WEB APP MANIFEST
-  ========================= */
-
   manifest: "/manifest.webmanifest",
-
-  /* =========================
-     GOOGLE SEARCH CONSOLE
-  ========================= */
-
-  verification: {
-    google: "kmVqn_YStuVXKVJubA8gxwQo4OSunHofNYKxShen5TQ",
-  },
-
-  /* =========================
-     GEO META
-  ========================= */
-
-  other: {
-    "geo.region": "IN-TN",
-    "geo.placename": "Erode, Tamil Nadu",
-  },
+  verification: { google: "kmVqn_YStuVXKVJubA8gxwQo4OSunHofNYKxShen5TQ" },
+  other: { "geo.region": "IN-TN", "geo.placename": "Erode, Tamil Nadu" },
 };
 
 /* =========================
@@ -316,7 +198,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
+            __html: serializeJsonLd(organizationSchema),
           }}
         />
 
@@ -325,7 +207,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
+            __html: serializeJsonLd(websiteSchema),
           }}
         />
 
