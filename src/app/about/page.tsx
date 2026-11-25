@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { createMetadata, pageSeo } from "@/lib/seo";
+import PageStructuredData from "@/components/PageStructuredData";
 import Link from "next/link";
 import {
   FaBullseye,
@@ -16,26 +18,12 @@ import CTASection from "@/components/CTASection";
 import Image from "next/image";
 import { siteConfig, timeline } from "@/data/site";
 
-export const metadata = {
-  title: "About Textile Machinery Manufacturer in Erode | SVN Enterprises",
-  description:
-    "Learn about SVN Enterprises, an Erode-based manufacturer of textile processing, fabric inspection, rolling, batching and customised industrial machinery for mills across India.",
-  keywords: [
-    "textile machinery manufacturer Erode",
-    "textile machinery manufacturer Tamil Nadu",
-    "textile machinery manufacturer India",
-    "custom textile machinery manufacturer",
-    "textile processing machinery supplier",
-    "industrial machinery manufacturer Erode",
-  ],
-  alternates: {
-    canonical: "https://www.svnenterprises.co.in/about",
-  },
-};
+export const metadata: Metadata = createMetadata(pageSeo.about);
 
 export default function AboutPage() {
   return (
     <>
+      <PageStructuredData page="about" type="AboutPage" />
       <PageHero
         title="About SVN Enterprises"
         subtitle="A decade of building dependable machinery for textile mills, garment units and commercial establishments across India."

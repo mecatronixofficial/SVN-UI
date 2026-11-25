@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { createMetadata, pageSeo } from "@/lib/seo";
+import PageStructuredData from "@/components/PageStructuredData";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
 import PageHero from "@/components/PageHero";
 import SectionTitle from "@/components/SectionTitle";
@@ -6,24 +8,12 @@ import TestimonialSlider from "@/components/TestimonialSlider";
 import CTASection from "@/components/CTASection";
 import { testimonials } from "@/data/testimonials";
 
-export const metadata: Metadata = {
-  title: "Textile Machinery Customer Reviews | SVN Enterprises",
-  description:
-    "Read customer feedback from textile mills, garment units and laundry operators using SVN Enterprises textile and industrial machinery across India.",
-  keywords: [
-    "textile machinery customer reviews",
-    "textile machinery manufacturer India reviews",
-    "fabric processing machinery supplier reviews",
-    "textile machinery Erode",
-  ],
-  alternates: {
-    canonical: "https://www.svnenterprises.co.in/testimonials",
-  },
-};
+export const metadata: Metadata = createMetadata(pageSeo.testimonials);
 
 export default function TestimonialsPage() {
   return (
     <>
+      <PageStructuredData page="testimonials" type="CollectionPage" />
       <PageHero
         title="Client Testimonials"
         subtitle="What production managers, factory owners and procurement teams say about working with us."

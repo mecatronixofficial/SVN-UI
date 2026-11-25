@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { FaHome, FaCogs } from "react-icons/fa";
+
+export const metadata: Metadata = {
+  title: { absolute: "Page Not Found | SVN Enterprises" },
+  description: "This page could not be found. Visit SVN Enterprises to explore textile machinery and contact our team in Erode.",
+  robots: { index: false, follow: true },
+};
 
 export default function NotFound() {
   return (
